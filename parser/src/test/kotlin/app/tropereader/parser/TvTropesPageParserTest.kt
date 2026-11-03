@@ -93,6 +93,13 @@ class TvTropesPageParserTest {
     }
 
     @Test
+    fun `text the site hides stays hidden`() {
+        val card = work.cards.first { it.key == "Main/DeadpanSnarker" }
+        assertTrue("with their snark." in card.plainText, card.plainText)
+        assertFalse("invoked" in card.bodyHtml)
+    }
+
+    @Test
     fun `tables are read row by row`() {
         val card = work.cards.first { it.key == "n:damagetable" }
         assertTrue("<table>" in card.bodyHtml)

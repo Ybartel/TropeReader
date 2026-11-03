@@ -283,7 +283,10 @@ class TvTropesPageParser : PageParser {
         /** Strips notes' toggles, ads and site-only classes before sanitizing. */
         fun prepare(container: Element) {
             container.select(".notelabel, .tvtropes-ad-unit").remove()
-            container.select(".inlinefolder").forEach { it.clearAttributes().addClass("note") }
+            // Notes are shown inline, in parentheses, in the HTML itself so screen and speech agree.
+            container.select(".inlinefolder").forEach { it.clearAttributes().addClass("note").prependText(" (").appendText(")") }
+            // Text the site hides (e.g. editors' "invoked" labels); sanitizing drops styles, so it would show.
+            container.select("[style~=display:\\s*none]").remove()
             container.select("*").forEach { el ->
                 val kept = el.classNames().filter { it in KEPT_CLASSES }
                 if (kept.isEmpty()) el.removeAttr("class") else el.classNames(kept.toMutableSet())

@@ -55,7 +55,8 @@ export JAVA_HOME="/Applications/Android Studio.app/Contents/jbr/Contents/Home"
 - **Cloudflare blocks plain HTTP clients.** `curl`/OkHttp get `403` with `cf-mitigated: challenge` on every page, whatever the User-Agent. In a real browser the pages load normally, without any visible challenge.
   → The WebView is the **main** fetch path, not a fallback. Plan: a hidden WebView loads the page, and the raw HTML is read by a same-origin `fetch(location.href)` run inside it, so the parser always sees server HTML (not the DOM after scripts).
 - **Big works are split into separate pages** (`BreakingBad/TropesAToB`, `…/TropesCToD`…), linked from a plain list on the main page. Others split with folders on one page (`Tropes A-C`…). Both cases are handled: `splitParts` for the former (F2.5), folders flattened for the latter (F3.4).
-- **Inline notes** (`span.notelabel` + `span.inlinefolder`) exist next to spoilers; they are kept as `<span class="note">` and read in parentheses.
+- **Inline notes** (`span.notelabel` + `span.inlinefolder`) exist next to spoilers; they are kept as `<span class="note">` with the parentheses written into the HTML, so screen and speech show the same text.
+- **Hidden text:** some editor labels are hidden with `style="display:none"` (e.g. "invoked"); the parser removes them, since sanitizing drops styles and they would otherwise show glued to the next word.
 - The site embeds wiki markup in `data-format` attributes (base64). Not used, but a possible fallback if the HTML gets harder to parse.
 
 ## Parser
@@ -78,6 +79,8 @@ All site-specific selectors are in [`TvTropesPageParser`](parser/src/main/kotlin
 - `RecordedPagesTest`: every real page in `src/test/resources/pages/` must parse with unique keys and match its dump in `src/test/resources/snapshots/`. Snapshots are created on first run; after an intended parser change, run `./gradlew :parser:test -DupdateSnapshots=true` and review the diff.
 
 ### Adding real pages
+
+`pages/` holds 8 real pages (Breaking Bad and its 5 A-to-Z parts, Portal 2, Abandoned Area), taken from the app's own page cache on the emulator. Their snapshots catch any change in how they parse.
 
 Save each page's **raw source** (not the rendered page):
 

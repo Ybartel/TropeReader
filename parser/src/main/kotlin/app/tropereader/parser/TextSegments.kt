@@ -40,11 +40,8 @@ internal object TextSegments {
             }
             else -> {
                 val block = node.normalName() in BLOCKS
-                val note = node.hasClass("note")
                 if (block) out += Piece(null, inSpoiler)
-                if (note) out += Piece(" (", inSpoiler)
                 node.childNodes().forEach { walk(it, inSpoiler, out) }
-                if (note) out += Piece(")", inSpoiler)
                 if (block) out += Piece(null, inSpoiler)
             }
         }

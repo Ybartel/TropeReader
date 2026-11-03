@@ -1,0 +1,1011 @@
+# Tropes E to L
+path: BreakingBad/TropesEToL
+type: TROPES_PART (BreakingBad)
+cards: 335
+split parts: Tropes A-B <BreakingBad/TropesAToB>, Tropes C-D <BreakingBad/TropesCToD>, Tropes M-R <BreakingBad/TropesMToR>, Tropes S-Z <BreakingBad/TropesSToZ>
+
+== (top)
+   0  INTRO   intro
+      text:  Tropes A-B | Tropes C-D | Tropes E-L | Tropes M-R | Tropes S-Z | Main Page
+== These are the tropes that knock
+   1  ENTRY   Main/EarWorm
+      title: Ear Worm
+      text:  Ear Worm: For Walt the catchy theme song for a furniture store’s late-night commercials wh…
+   2  ENTRY   Main/EarlyInstallmentWeirdness
+      title: Early-Installment Weirdness
+      text:  Early-Installment Weirdness: Has its own page.
+   3  EXAMPLE Main/EarnYourHappyEnding#d3c2a11972d5  [spoilers:1]
+      title: Earn Your Happy Ending
+      text:  As happy as it gets for a prideful cancer-stricken drug kingpin. In the end, despite every…
+   4  EXAMPLE Main/EarnYourHappyEnding#ecd4c0a0bdd8  [spoilers:1]
+      title: Earn Your Happy Ending
+      text:  Jesse spends the series being used by everyone around him and makes multiple failed attemp…
+   5  EXAMPLE Main/ElSpanishO#c0b1253631a7
+      title: El Spanish "-o"
+      text:  Los Pollos Hermanos is the Chicken restaurant chain and drug front featured in seasons 3-5…
+   6  EXAMPLE Main/ElSpanishO#4f01b6d2e8cf
+      title: El Spanish "-o"
+      text:  Vamonos Pest from season 5b, justified as the company is not run by actual Mexicans.
+   7  EXAMPLE Main/EpicFail#6a5c0a1fe0e9
+      title: Epic Fail
+      text:  Walt's hilarious attempt to shatter a glass office door with a potted palm tree; the only …
+   8  EXAMPLE Main/EpicFail#e395caf8ac84
+      title: Epic Fail
+      text:  Walt discovers a housefly in the meth lab. He begins trying to swat the fly, but it's just…
+   9  EXAMPLE Main/EpicFail#6c19f72d5ec8
+      title: Epic Fail
+      text:  Referred to in Season 4: "That's what the kids call an 'Epic Fail'".
+  10  ENTRY   Main/EmpathyDollShot
+      title: Empathy Doll Shot
+      text:  Empathy Doll Shot: The teddy bear in the pool, as well as a doll in the background of a de…
+  11  ENTRY   Main/EmperorScientist
+      title: Emperor Scientist
+      text:  Emperor Scientist: Walt becomes one of these to the criminal underworld, utilizing his che…
+  12  ENTRY   Main/EndingTheAbuse
+      title: Ending the Abuse
+      text:  Ending the Abuse: After spending the entire series manipulated and gaslit by Walt, Jesse f…
+  13  ENTRY   Main/EnemyCivilWar  [spoilers:1]
+      title: Enemy Civil War
+      text:  Enemy Civil War: Much of the plot is driven by the cold war between the Salamancas family …
+  14  EXAMPLE Main/EnemyMine#a392e2e11f4f  [spoilers:1]
+      title: Enemy Mine
+      text:  How Walter gets Héctor Salamanca to kill Gus.
+  15  EXAMPLE Main/EnemyMine#6a967c033d44  [spoilers:1]
+      title: Enemy Mine
+      text:  Hank and Jesse come to an arrangement like this regarding Walt in Season 5.
+  16  EXAMPLE Main/EstablishingCharacterMoment#54e046ed84c3
+      title: Establishing Character Moment
+      text:  Walt's first line of dialogue. The audience is first led to think that he's about to make …
+  17  EXAMPLE Main/EstablishingCharacterMoment#42e830f70aa5
+      title: Establishing Character Moment
+      text:  Jesse first shows up stumbling out of a window half-naked just moments after the DEA barge…
+  18  EXAMPLE Main/EstablishingCharacterMoment#a4fc4ccc2638
+      title: Establishing Character Moment
+      text:  Skyler's ECM happens when she is giving Walt a handjob as his birthday present... But befo…
+  19  EXAMPLE Main/EstablishingCharacterMoment#eecdd25ab4f8
+      title: Establishing Character Moment
+      text:  As for Hank, it's when he takes his brother-in-law's glass, raises it for a toast... and t…
+  20  EXAMPLE Main/EstablishingCharacterMoment#140735b6db95
+      title: Establishing Character Moment
+      text:  Saul Goodman is introduced with one of his cheesy TV commercials. The first time he appear…
+  21  EXAMPLE Main/EstablishingCharacterMoment#a1283dfeaaf1  [spoilers:1]
+      title: Establishing Character Moment
+      text:  In his first couple of scenes, Todd appears to be a competent, unfailingly polite henchman…
+  22  EXAMPLE Main/EstablishingSeriesMoment#a3991c97b154
+      title: Establishing Series Moment
+      text:  The opening RV scene. Walt desperately drives only in his underpants, with an unconscious …
+  23  EXAMPLE Main/EstablishingSeriesMoment#c625fd870af7
+      title: Establishing Series Moment
+      text:  Walter's chemistry lecture to his students about how life is about growth, decay, and tran…
+  24  EXAMPLE Main/EurekaMoment#021e761ee445
+      title: "Eureka!" Moment
+      text:  Hank has his when he finds a copy of Walt Whitman's Leaves of Grass in the Whites' bathroo…
+  25  EXAMPLE Main/EurekaMoment#ecda971bc4d2  [spoilers:1]
+      title: "Eureka!" Moment
+      text:  Walt, when he watches Elliott and Gretchen being interviewed on Charlie Rose. He realizes …
+  26  EXAMPLE Main/EvenEvilHasLovedOnes#4566e8a00c2a  [spoilers:1]
+      title: Even Evil Has Loved Ones
+      text:  Walter, rapidly losing any moral high ground he might have started with, and his meth prod…
+  27  EXAMPLE Main/EvenEvilHasLovedOnes#dd66c25f7200  [spoilers:1]
+      title: Even Evil Has Loved Ones
+      text:  A flashback reveals that the Salamanca kids have had this stomped into them by their uncle…
+  28  EXAMPLE Main/EvenEvilHasLovedOnes#8f8e2663ff3a
+      title: Even Evil Has Loved Ones
+      text:  Gus' main motive for being in organized crime is to avenge the murder of his best friend a…
+  29  EXAMPLE Main/EvenEvilHasLovedOnes#08f7fa95d0b9
+      title: Even Evil Has Loved Ones
+      text:  Mike is devoted to his granddaughter Kaylee.
+  30  EXAMPLE Main/EvenEvilHasLovedOnes#ac817a0a6a2b
+      title: Even Evil Has Loved Ones
+      text:  Todd also has a strong relationship with his uncle Jack and his gang.
+  31  EXAMPLE Main/EvenEvilHasLovedOnes#a13c8e3f8980
+      title: Even Evil Has Loved Ones
+      text:  Also, Lydia loves her only daughter.
+  32  ENTRY   Main/EvilCannotComprehendGood  [spoilers:2]
+      title: Evil Cannot Comprehend Good
+      text:  Evil Cannot Comprehend Good: Gus doesn't spend even a second trying to understand why Walt…
+  33  ENTRY   Main/EvilWillFail  [spoilers:3]
+      title: Evil Will Fail
+      text:  Evil Will Fail: One of the series' main themes is that crime is self-destructive by its ve…
+  34  EXAMPLE Main/EvenEvilHasStandards#0d5999b995bd
+      title: Even Evil Has Standards
+      text:  Jesse is genuinely appalled at how the addicted couple has neglected their young son when …
+  35  EXAMPLE Main/EvenEvilHasStandards#224180ba0bfd  [spoilers:1]
+      title: Even Evil Has Standards
+      text:  Gus is insulted by Walt's implied accusation that he had a child killed. Subverted when he…
+  36  EXAMPLE Main/EvenEvilHasStandards#e337a916d8c8  [spoilers:1]
+      title: Even Evil Has Standards
+      text:  Even Victor is disturbed and angered by all-around Nice Guy Gale's death.
+  37  EXAMPLE Main/EvenEvilHasStandards#68d740e30b08  [spoilers:2]
+      title: Even Evil Has Standards
+      text:  Although implied since almost the beginning, Walt finally stated to Saul in one episode th…
+  38  EXAMPLE Main/EvenEvilHasStandards#58dddf689660  [spoilers:2]
+      title: Even Evil Has Standards
+      text:  Mike seems to be disgusted by Walt bombing a nursing home and by the idea of bombing a pol…
+  39  EXAMPLE Main/EvenEvilHasStandards#5644e55eed46  [spoilers:3]
+      title: Even Evil Has Standards
+      text:  Saul refuses to give up Walt and Jesse's location to Mike at the end of Season 3, risks hi…
+  40  EXAMPLE Main/EvenEvilHasStandards#ff23ed9b7b2c  [spoilers:1]
+      title: Even Evil Has Standards
+      text:  When Uncle Jack and his Nazis take Walt's barrels of money, Jack does leave Walt with one …
+  41  EXAMPLE Main/EvilIsPetty#e92ea934270c
+      title: Evil Is Petty
+      text:  After Walter and Skyler conspire to force Bogdan to sell them his carwash at a loss (impli…
+  42  EXAMPLE Main/EvilIsPetty#5567cafbdcf5
+      title: Evil Is Petty
+      text:  Walt also still holds a massive grudge about impulsively accepting $5000 for his share of …
+  43  EXAMPLE Main/EvilIsPetty#c99f9698b2e8
+      title: Evil Is Petty
+      text:  When Walt has to be snuck into the laundry in a cart and covered with sheets:
+  44  EXAMPLE Main/EvilVersusEvil#95874c5e3ecd  [spoilers:1]
+      title: Evil Versus Evil
+      text:  The conflict between Gus and the Cartel. Both sides have well-proven how morally terrible …
+  45  EXAMPLE Main/EvilVersusEvil#c633b1cad279
+      title: Evil Versus Evil
+      text:  While it started as Black-and-Grey Morality, by the end, Walter's conflict against Gus tur…
+  46  ENTRY   Main/ExceededTheGoal
+      title: Exceeded the Goal
+      text:  Exceeded the Goal: At the beginning of the second season, Walter estimates that he would n…
+  47  ENTRY   Main/ExpositoryThemeTune
+      title: Expository Theme Tune
+      text:  Expository Theme Tune: The Ballad of Heisenberg, from "Negro y Azul".
+  48  ENTRY   Main/ExtremelyShortTimespan
+      title: Extremely Short Timespan
+      text:  Extremely Short Timespan: Improbable as it may seem, the first four and a half seasons tak…
+  49  EXAMPLE Main/FaceDeathWithDignity#5bbae60f5248  [spoilers:1]
+      title: Face Death with Dignity
+      text:  Mike decides to sit on a rock in silence, admiring the Scenery Porn, as he dies of a gut s…
+  50  EXAMPLE Main/FaceDeathWithDignity#864f694a082c  [spoilers:3]
+      title: Face Death with Dignity
+      text:  Hank in "Ozymandias", staring down the barrel of a neo-Nazi's gun. Hank: My name is ASAC S…
+  51  EXAMPLE Main/FaceDeathWithDignity#741cecf04c80  [spoilers:1]
+      title: Face Death with Dignity
+      text:  Walt peacefully dies in the Aryan meth lab, with no regrets and agony over his incoming de…
+  52  ENTRY   Main/FaceFramedInShadow
+      title: Face Framed in Shadow
+      text:  Face Framed in Shadow: Very often; numerous important conversations have the lighting do t…
+  53  ENTRY   Main/FaceHeelTurn
+      title: Face–Heel Turn
+      text:  Face–Heel Turn: The whole series is one big one for Walt himself. From Everyman to Anti-He…
+  54  ENTRY   Main/FaceOfAThug
+      title: Face of a Thug
+      text:  Face of a Thug: Jesse's assumptions about this regarding a random stranger causes his rela…
+  55  ENTRY   Main/FacialHorror  [spoilers:1]
+      title: Facial Horror
+      text:  Facial Horror: Gus' death in "Face Off". He turns to the camera, adjusting his tie to reve…
+  56  ENTRY   Main/FacingTheBulletsOneLiner  [spoilers:1]
+      title: "Facing the Bullets" One-Liner
+      text:  "Facing the Bullets" One-Liner: "My name is ASAC Schrader, and you can go fuck yourself."
+  57  EXAMPLE Main/FailedASpotCheck#c41479084cdc
+      title: Failed a Spot Check
+      text:  Hank and Gomez, while staking out a meth lab owned by a Cap'n Cook, somehow managed to mis…
+  58  EXAMPLE Main/FailedASpotCheck#52bd7faa35ec
+      title: Failed a Spot Check
+      text:  Somehow, the Nazis just plumb forgot to check under that car.
+  59  EXAMPLE Main/FailedASpotCheck#3716df0d710f
+      title: Failed a Spot Check
+      text:  They didn't check Walt's trunk in "Felina", either.
+  60  EXAMPLE Main/FailedASpotCheck#b912e15287d6  [spoilers:1]
+      title: Failed a Spot Check
+      text:  Earlier, Tyrus fails to spot the bomb attached to Hector's wheelchair.
+  61  ENTRY   Main/FailedAttemptAtDrama  [spoilers:1]
+      title: Failed Attempt at Drama
+      text:  Failed Attempt at Drama: While it is certainly not played for laughs, Walt tries to threat…
+  62  EXAMPLE Main/FallGuy#14c19f16e4b2
+      title: Fall Guy
+      text:  Jimmy In'n'Out is a professional fall guy, who will confess to a crime and take the punish…
+  63  EXAMPLE Main/FallGuy#24cd728633ea  [spoilers:2]
+      title: Fall Guy
+      text:  Skyler after Walt flees following Hank's death. Saul points out that the police will not o…
+  64  ENTRY   Main/FalseCause
+      title: False Cause
+      text:  False Cause: The discredited notion of a "gateway drug" rears its head when Hank tries to …
+  65  ENTRY   Main/FamilyMan
+      title: Family Man
+      text:  Family Man: Walter White is a man worried about his family and especially for his children…
+  66  EXAMPLE Main/Fanservice#84c43831d1b0
+      title: Fanservice
+      text:  The boob shot in the pilot. It was noticably the only scene in the show with frontal femal…
+  67  EXAMPLE Main/Fanservice#ed0c8da3753d
+      title: Fanservice
+      text:  "Más" opens with Jesse and Combo partying it up in a strip club, complete with close-up sh…
+  68  ENTRY   Main/FantasticDrug
+      title: Fantastic Drug
+      text:  Fantastic Drug: Walter's 99.1% chemically pure crystal methamphetamine, Blue Sky. To give …
+  69  EXAMPLE Main/FatalFlaw#205bb92bb0ca
+      title: Fatal Flaw
+      text:  Pride for Walter, even before the series began: Led to his breakup with Gretchen and subse…
+  70  EXAMPLE Main/FatalFlaw#94fe0c860c44
+      title: Fatal Flaw
+      text:  For Gus, his hatred of the Salamancas which leads him to break his routine and antagonize …
+  71  ENTRY   Main/FateWorseThanDeath  [spoilers:2]
+      title: Fate Worse than Death
+      text:  Fate Worse than Death: Jesse in "Ozymandias." Instead of killing him, Jack's gang takes hi…
+  72  EXAMPLE Main/FauxAffablyEvil#4fe48863c2f5
+      title: Faux Affably Evil
+      text:  Walter himself becomes this trope in Season 5, fully embracing the persona of a ruthless d…
+  73  ENTRY   Main/FauxFluency
+      title: Faux Fluency
+      text:  Faux Fluency: Very few of the actors playing members of the Mexican Cartel are native spea…
+  74  ENTRY   Main/FelonyMisdemeanor
+      title: Felony Misdemeanor
+      text:  Felony Misdemeanor: The juxtaposition with meth and other class A drugs only makes Skyler'…
+  75  ENTRY   Main/FeetFirstIntroduction
+      title: Feet-First Introduction
+      text:  Feet-First Introduction: Lydia gets quite a few of these. In "Buried," she's shown walking…
+  76  ENTRY   Main/FieryCoverUp
+      title: Fiery Cover-Up
+      text:  Fiery Cover-Up: Walt and Jesse fill the super lab under the laundry with flammable chemica…
+  77  ENTRY   Main/FireForgedFriends  [spoilers:1]
+      title: Fire-Forged Friends
+      text:  Fire-Forged Friends: Walt and Jesse start off quite rocky, and they come to blows several …
+  78  ENTRY   Main/FiringDay
+      title: Firing Day
+      text:  Firing Day: When Jesse is able to cook without Walt, Gus drags Walt into the desert and fi…
+  79  ENTRY   Main/FiveSecondForeshadowing  [spoilers:1]
+      title: Five-Second Foreshadowing
+      text:  Five-Second Foreshadowing: Gus realizes Hector's plan about a half-second before it blows …
+  80  EXAMPLE Main/Flashforward#b5d468b026f1
+      title: Flashforward
+      text:  The Cold Open for the season 5 premiere is a flash forward to one year to the future. "Blo…
+  81  EXAMPLE Main/Flashforward#72b01b084939
+      title: Flashforward
+      text:  The pilot opens with the immediate aftermath of Walter killing Emilio and (almost) Krazy-8…
+  82  EXAMPLE Main/Flashforward#42b80d43a489
+      title: Flashforward
+      text:  Four episodes in season 2 open with flash-forwards to the end of the season.
+  83  ENTRY   Main/FlatCharacter
+      title: Flat Character
+      text:  Flat Character: Louis seems to exist solely for the purpose of having Walt Jr. out of the …
+  84  EXAMPLE Main/FlawExploitation#8582c6541e01
+      title: Flaw Exploitation
+      text:  Walt wins by exploiting Gus' one flaw: the man's hatred of the Salamancas.
+  85  EXAMPLE Main/FlawExploitation#c4ae5729ab12  [spoilers:1]
+      title: Flaw Exploitation
+      text:  Lydia's routine of meeting associates at the same table in the same coffee shop (and addin…
+  86  ENTRY   Main/FlippingTheBird
+      title: Flipping the Bird
+      text:  Flipping the Bird: When Walt sees that Gus has installed surveillance cameras in the lab, …
+  87  ENTRY   Main/FlushTheEvidence  [spoilers:1]
+      title: Flush the Evidence
+      text:  Flush the Evidence: During Season 1, Walt and Jessie are forced to kill their first rival …
+  88  EXAMPLE Main/Foil#39d1287b0eeb
+      title: Foil
+      text:  Saul to Walt. Both characters are highly intelligent and very talented at their chosen fie…
+  89  EXAMPLE Main/Foil#0aced800d615
+      title: Foil
+      text:  Hank is this to Walt. They each rise in power on opposite sides of the law and often tackl…
+  90  EXAMPLE Main/Foil#be060afe284c
+      title: Foil
+      text:  Also, Gomez to Hank. Gomie's ideas are almost never right.
+  91  EXAMPLE Main/Foil#112bfe47b435
+      title: Foil
+      text:  Walt and Jesse, complete with their character development going in two opposite directions…
+  92  EXAMPLE Main/Foil#fe3f750357b8
+      title: Foil
+      text:  Jesse and Todd. Both are Walt's younger assistants. Jesse is foul-mouthed and short-temper…
+  93  EXAMPLE Main/FoodPorn#2300f81a9971
+      title: Food Porn
+      text:  A rare non-food example. The meth cooking scenes play out in loving, delectable detail tha…
+  94  EXAMPLE Main/FoodPorn#bcca5b9fb6c2
+      title: Food Porn
+      text:  Played straight with the Pollos Hermanos commercial. It will probably make you wish the re…
+  95  ENTRY   Main/FootDraggingDivorcee
+      title: Foot-Dragging Divorcee
+      text:  Foot-Dragging Divorcee: Skyler threatens to tell the police about Walt's uh...drug problem…
+  96  ENTRY   Main/ForcedOrgasm
+      title: Forced Orgasm
+      text:  Forced Orgasm: After Hank is shot in an ambush, his recovery is hampered by his stubborn r…
+  97  ENTRY   Main/ForegoneConclusion  [spoilers:1]
+      title: Foregone Conclusion
+      text:  Foregone Conclusion: The use of Flash Forwards in some opening scenes means that the audie…
+  98  ENTRY   Main/ForeignRemake
+      title: Foreign Remake
+      text:  Foreign Remake: Metastasis, set in Colombia, following the misadventures of Walter Blanco,…
+  99  ENTRY   Main/FourEyesZeroSoul
+      title: Four Eyes, Zero Soul
+      text:  Four Eyes, Zero Soul: Walter White and Gustavo Fring at the height of their power.
+ 100  EXAMPLE Main/FourTemperamentEnsemble#d05955b44602
+      title: Four-Temperament Ensemble
+      text:  Melancholic: Walter.
+ 101  EXAMPLE Main/FourTemperamentEnsemble#cd6e577d1171
+      title: Four-Temperament Ensemble
+      text:  Phlegmatic: Jesse.
+ 102  EXAMPLE Main/FourTemperamentEnsemble#61d9fec49c4f
+      title: Four-Temperament Ensemble
+      text:  Choleric: Mike.
+ 103  EXAMPLE Main/FourTemperamentEnsemble#f27194cea3b7
+      title: Four-Temperament Ensemble
+      text:  Sanguine: Saul.
+ 104  ENTRY   Main/FracturedFamily  [spoilers:1]
+      title: Fractured Family
+      text:  Fractured Family: When Hank discovers that his brother-in-law Walt is Heisenberg, this spl…
+ 105  ENTRY   Main/FrameUp  [spoilers:1]
+      title: Frame-Up
+      text:  Frame-Up: In "Confessions," Walt makes a tape that paints Hank as the Lawman Gone Bad mast…
+ 106  EXAMPLE Main/FreezeFrameBonus#a9a04211e0e5
+      title: Freeze-Frame Bonus
+      text:  In "Blood Money" when Hank is looking through all the case files related to Heisenberg, wh…
+ 107  EXAMPLE Main/FreezeFrameBonus#91539fe0c05e
+      title: Freeze-Frame Bonus
+      text:  In "Abiquiu," when Walt enters Gus' home, there are children's toys in his living room, su…
+ 108  ENTRY   Main/FreudianTrio  [spoilers:1]
+      title: Freudian Trio
+      text:  Freudian Trio: Walt, Jesse, and Mike in Season 5A. Sure enough, the first time Walt and Mi…
+ 109  EXAMPLE Main/FromBadToWorse#bf7ea7a86385  [spoilers:1]
+      title: From Bad to Worse
+      text:  This is also Walt's situation in the entire show, but most importantly, Season 5B.
+ 110  ENTRY   Main/FromNobodyToNightmare
+      title: From Nobody to Nightmare
+      text:  From Nobody to Nightmare: Played unnervingly straight. There is no reason for Walt to be a…
+ 111  ENTRY   Main/FrozenDinnerOfLoneliness
+      title: Frozen Dinner of Loneliness
+      text:  Frozen Dinner of Loneliness: In one episode Walt is shown eating a TV dinner at the table …
+ 112  ENTRY   Main/FunWithAcronyms
+      title: Fun with Acronyms
+      text:  Fun with Acronyms: Unconfirmed but a nice coincidence: "Felina" can be broken down into Fe…
+ 113  EXAMPLE Main/FunnyAnsweringMachine#d60b8c8ede87
+      title: Funny Answering Machine
+      text:  Jesse Pinkman's answering machine greeting: YO YO YO 1-4-8 3 TO THE 3 TO THE 6 TO THE 9, R…
+ 114  EXAMPLE Main/FunnyAnsweringMachine#a730a097a1d0
+      title: Funny Answering Machine
+      text:  Jane's: Hi, I'm not home right now. If you're trying to sell me something, I've got four l…
+ 115  ENTRY   Main/GainingTheWillToKill  [spoilers:1]
+      title: Gaining the Will to Kill
+      text:  Gaining the Will to Kill: Walt’s first two kills are done in self defense in season 1, alt…
+ 116  EXAMPLE Main/GambitRoulette#890c10b38cf2  [spoilers:1]
+      title: Gambit Roulette
+      text:  Walt poisoned Brock with a not-quite lethal poison and stole the ricin cigarette from Jess…
+ 117  EXAMPLE Main/GambitRoulette#2313f6c785ad  [spoilers:2]
+      title: Gambit Roulette
+      text:  Gus' wholesale poisoning of the cartel in "Salud" also depended on a lot of luck (see One …
+ 118  EXAMPLE Main/GambitRoulette#8ef4022b4a7a  [spoilers:2]
+      title: Gambit Roulette
+      text:  The way Walt takes out the Aryan Brotherhood depended on them a.) allowing him to position…
+ 119  ENTRY   Main/TheGamblingAddict
+      title: The Gambling Addict
+      text:  The Gambling Addict: How Skyler eventually explains Walt's money to her family.
+ 120  ENTRY   Main/GamesOfTheElderly
+      title: Games of the Elderly
+      text:  Games of the Elderly: In S4E13, Walt pays a visit to Hector in his retirement home, where …
+ 121  ENTRY   Main/GaveUpTooSoon
+      title: Gave Up Too Soon
+      text:  Gave Up Too Soon: Walt was one of the founders of Gray Matter, but soon became convinced t…
+ 122  ENTRY   Main/GenericGraffiti
+      title: Generic Graffiti
+      text:  Generic Graffiti: "HEISENBERG" in the mid-fifth-season premiere.
+ 123  ENTRY   Main/GeniusBruiser
+      title: Genius Bruiser
+      text:  Genius Bruiser: Hank initially comes off as a tough, over-bearing cop whose main skills ar…
+ 124  ENTRY   Main/GenreBlind
+      title: Genre Blind
+      text:  Genre Blind: Saul straight up compares himself to Tom Hagan working for Vito Corleone, ass…
+ 125  ENTRY   Main/GenreShift
+      title: Genre Shift
+      text:  Genre Shift: From very dark Black Comedy to Shakespearean-style Tragedy. Not that the Bard…
+ 126  ENTRY   Main/GermanicEfficiency
+      title: Germanic Efficiency
+      text:  Germanic Efficiency: Madrigal Elektromotiv GmbH (Gesellschaft mit beschränkter Haftung, Ge…
+ 127  EXAMPLE Main/GettingHighOnTheirOwnSupply#a9f48b82f40d
+      title: Getting High on Their Own Supply
+      text:  A lot of problems in the show are caused by Jesse getting high, though not solely on the m…
+ 128  EXAMPLE Main/GettingHighOnTheirOwnSupply#19b5c3819200
+      title: Getting High on Their Own Supply
+      text:  Tuco Salamanca has a tendency to snort meth he also deals. Which is a very bad thing when …
+ 129  ENTRY   Main/GetOut  [spoilers:1]
+      title: Get Out!
+      text:  Get Out!: Skyler pulls this on Walt in “Ozymandias” after she figures out that Hank is dea…
+ 130  ENTRY   e:547deacf5ae6
+      text:  The Ghost. We never see Walt's mother, though she does get mentioned a few times.
+ 131  EXAMPLE Main/GilliganCut+Main/Pun#91f531c583d5
+      title: Gilligan Cut (Or perhaps a Vince Gilligan Cut)
+      text:  After Marie's bet with Hank over whether he can still get erect after his injuries and sur…
+ 132  EXAMPLE Main/GilliganCut+Main/Pun#bc1fc8662ba2  [spoilers:1]
+      title: Gilligan Cut (Or perhaps a Vince Gilligan Cut)
+      text:  In the season 4 finale, when Marie forbids Hank to leave the house and go to the DEA after…
+ 133  EXAMPLE Main/GladToBeAliveSex#04d293113af1
+      title: Glad-to-Be-Alive Sex
+      text:  In the first episode, Walt with Skyler after just escaping two drug dealers who were about…
+ 134  EXAMPLE Main/GladToBeAliveSex#5821b1da92c9
+      title: Glad-to-Be-Alive Sex
+      text:  Subverted in the season 2 premiere, Walt returns home from a traumatic ordeal and tries to…
+ 135  ENTRY   Main/GoodIsImpotent  [spoilers:2]
+      title: Good Is Impotent
+      text:  Good Is Impotent: Villain Protagonist Walter White becomes more and more dangerous as he d…
+ 136  EXAMPLE Main/GoneHorriblyRight#3ccc1eb267f7  [spoilers:1]
+      title: Gone Horribly Right
+      text:  Walter White just wanted to make some cash to play his medical bills and leave some left o…
+ 137  EXAMPLE Main/GoneHorriblyRight#c818c41f0755
+      title: Gone Horribly Right
+      text:  A desperate man with sympathetic medical problems and not much savvy looked like an ideal …
+ 138  EXAMPLE Main/GoneHorriblyRight#1a3a0a045aec  [spoilers:1]
+      title: Gone Horribly Right
+      text:  Gus wanted to sadistically antagonize Hector as a poor cripple stuck in a Fate Worse than …
+ 139  EXAMPLE Main/Gorn#dae504237f18
+      title: Gorn
+      text:  Several dissolved corpses over the course of the show.
+ 140  EXAMPLE Main/Gorn#4e904153b38c  [spoilers:1]
+      title: Gorn
+      text:  Tuco beating No-Doze to death in a fit of rage, with blood splattering all over and No-Doz…
+ 141  EXAMPLE Main/Gorn#f945e3da35d7
+      title: Gorn
+      text:  The decapitated-head-turtle-bombing in "Negro y Azul" results in quite a lot of carnage.
+ 142  EXAMPLE Main/Gorn#f240ca150136  [spoilers:1]
+      title: Gorn
+      text:  Hank killing Marco via headshot, complete with a graphic depiction of the latter's brain s…
+ 143  EXAMPLE Main/Gorn#730f7c0c3c89  [spoilers:1]
+      title: Gorn
+      text:  In "Box Cutter," Gus slices open a neck with one.
+ 144  EXAMPLE Main/Gorn#7e51ceb219ce  [spoilers:1]
+      title: Gorn
+      text:  Gus Fring's death, where one side of his face is blown down to the skull by a bomb.
+ 145  EXAMPLE Main/Gorn#65fe67e60b44  [spoilers:1]
+      title: Gorn
+      text:  Mike's crew are stabbed dozens of times, with the last one doused with flammable liquid an…
+ 146  ENTRY   Main/GrievousBottleyHarm
+      title: Grievous Bottley Harm
+      text:  Grievous Bottley Harm: Jesse's trying to get his money back from the junkies that ripped o…
+ 147  ENTRY   Main/HairTriggerExplosive
+      title: Hair-Trigger Explosive
+      text:  Hair-Trigger Explosive: Walt throws a handful of mercury fulminate on the ground and it ex…
+ 148  EXAMPLE Main/HandshakeRefusal#24696c8c4a7e
+      title: Handshake Refusal
+      text:  When Skinny Pete introduces Jesse to Tuco, Pete tries to go for a fist bump. Tuco doesn't …
+ 149  EXAMPLE Main/HandshakeRefusal#6e41aa0770c9
+      title: Handshake Refusal
+      text:  Saul holds out his hand twice for Walt, once for Mike, and gets shut down every time. The …
+ 150  ENTRY   Main/HandshakeSubstitute
+      title: Handshake Substitute
+      text:  Handshake Substitute: Fist bumps are occasionally seen by the younger set.
+ 151  ENTRY   Main/HandSlidingDownTheGlass
+      title: Hand Sliding Down the Glass
+      text:  Hand Sliding Down the Glass: In "Gliding Over All," Walt's hired thugs engage in a series …
+ 152  ENTRY   Main/HappyFlashback
+      title: Happy Flashback
+      text:  Happy Flashback: In the final episode, the now-fugitive Walt roams his abandoned house and…
+ 153  EXAMPLE Main/HeelRealization#5b797ab27e08
+      title: Heel Realization
+      text:  Jesse comes to this in Season 3 premiere "No Mas" after getting out of rehab, following Ja…
+ 154  EXAMPLE Main/HeelRealization#bc8e7a953250  [spoilers:1]
+      title: Heel Realization
+      text:  Walt has his own by "Felina", when he finally admits to Skyler that he cooked for his own …
+ 155  ENTRY   Main/HeKnowsTooMuch  [spoilers:1]
+      title: He Knows Too Much
+      text:  He Knows Too Much: Deconstructed. Walt thinks he's covering his tracks by killing Mike and…
+ 156  ENTRY   Main/HeWhoFightsMonsters  [spoilers:1]
+      title: He Who Fights Monsters
+      text:  He Who Fights Monsters: Season 4's finale has Walt pulling off a Batman Gambit and finally…
+ 157  ENTRY   Main/HealthcareMotivation
+      title: Healthcare Motivation
+      text:  Healthcare Motivation: Walt, at first.
+ 158  ENTRY   Main/HeavyMetalUmlaut
+      title: Heävy Mëtal Ümlaut
+      text:  Heävy Mëtal Ümlaut: A minisode reveals that Jesse's old band was named TwaüghtHammër.
+ 159  ENTRY   Main/TheHeroDies  [spoilers:1]
+      title: The Hero Dies
+      text:  The Hero Dies: Both Walt (the show's Villain Protagonist) and Hank (the show's Hero Antago…
+ 160  ENTRY   Main/HeroesActVillainsHinder  [spoilers:1]
+      title: Heroes Act, Villains Hinder
+      text:  Heroes Act, Villains Hinder: The show is mainly about the chaos caused by its hero, Walter…
+ 161  EXAMPLE Main/HeroicBlueScreenOfDeath#7fb921852e4a
+      title: Heroic Blue Screen of Death
+      text:  Jesse when he finds Jane dead. He has to be slapped out of it by Mike who wants him to tel…
+ 162  EXAMPLE Main/HeroicBlueScreenOfDeath#ca0c797d5d62
+      title: Heroic Blue Screen of Death
+      text:  Jesse in Season 4 premiere "Box Cutter", too shaken up to even flee the crime scene.
+ 163  EXAMPLE Main/HeroicBlueScreenOfDeath#82afbb1c1ee7  [spoilers:1]
+      title: Heroic Blue Screen of Death
+      text:  Walt at the end of "Crawl Space" after Skyler tells him she gave the money they needed to …
+ 164  EXAMPLE Main/HeroicBlueScreenOfDeath#81ea0c5a4798  [spoilers:2]
+      title: Heroic Blue Screen of Death
+      text:  Hank in "Blood Money." The realization that Walt is Heisenberg brings back his panic attac…
+ 165  EXAMPLE Main/HeroicBlueScreenOfDeath#d0335738b0a9
+      title: Heroic Blue Screen of Death
+      text:  Jesse is basically a walking BSoD throughout "Buried." Given all he's been through up to t…
+ 166  EXAMPLE Main/HeroicBlueScreenOfDeath#6277975f8b42  [spoilers:3]
+      title: Heroic Blue Screen of Death
+      text:  "Ozymandias" Walt gets one when he witnesses Jack kill Hank despite all he does to save hi…
+ 167  EXAMPLE Main/HiddenDepths#17272e033830
+      title: Hidden Depths
+      text:  Jesse's soft-heartedness is also unexpected for Walt as well as the audience.
+ 168  EXAMPLE Main/HiddenDepths#3c95f5491c28
+      title: Hidden Depths
+      text:  The flashback to Gus' past, showing that he has a reason for his cold and calculating pers…
+ 169  EXAMPLE Main/HiddenDepths#9c42e29a4479
+      title: Hidden Depths
+      text:  Gale makes excellent coffee, good enough to make Walt jokingly question why they're still …
+ 170  EXAMPLE Main/HiddenDepths#ad713d013362
+      title: Hidden Depths
+      text:  Old Joe, the trashy junkyard owner, turns out to actually have an impressive knowledge of …
+ 171  EXAMPLE Main/HiddenDepths#e6bf765345e4
+      title: Hidden Depths
+      text:  Skyler takes to money-laundering like a duck to water. But then the water turns to blood a…
+ 172  EXAMPLE Main/HiddenDepths#cc04cefb36d1
+      title: Hidden Depths
+      text:  "Hazard Pay" reveals that Skinny Pete, the crusty meth dealer and drug addict, is a gifted…
+ 173  ENTRY   Main/HiddenInPlainSight
+      title: Hidden in Plain Sight
+      text:  Hidden in Plain Sight: Gus and Walt both do this. At one point Walt even jokingly confesse…
+ 174  ENTRY   Main/HitmanWithAHeart
+      title: Hitman with a Heart
+      text:  Hitman with a Heart: Mike Ehrmantraut is more than happy to murder just about anyone, but …
+ 175  ENTRY   Main/HollywoodAcid
+      title: Hollywood Acid
+      text:  Hollywood Acid: Hydrofluoric acid, used twice in the series to dispose of bodies by Walt a…
+ 176  ENTRY   Main/HollywoodMagnetism  [spoilers:1]
+      title: Hollywood Magnetism
+      text:  Hollywood Magnetism: Mostly averted by the magnet used in The Caper. Walt points out that …
+ 177  ENTRY   Main/HollywoodMidlifeCrisis
+      title: Hollywood Mid-Life Crisis
+      text:  Hollywood Mid-Life Crisis: Word of God has called Walter White's life of crime in Breaking…
+ 178  EXAMPLE Main/HollywoodScience#ca583da2937c
+      title: Hollywood Science
+      text:  Hydrofluoric acid will kill you dead if you breathe the gas it produces or get any on your…
+ 179  EXAMPLE Main/HollywoodScience#dd25221be00a
+      title: Hollywood Science
+      text:  Mercury (II) fulminate is ridiculously dangerous. Walt is meant to be a badass crystallogr…
+ 180  EXAMPLE Main/HollywoodScience#2ac166fc5a83
+      title: Hollywood Science
+      text:  Walt suggesting he's gonna make phenylacetone in a tube furnace like it's the most natural…
+ 181  ENTRY   Main/HonestCorporateExecutive  [spoilers:1]
+      title: Honest Corporate Executive
+      text:  Honest Corporate Executive: Gus Fring's public image. It's totally wrong, but it is his pu…
+ 182  EXAMPLE Main/HonestJohnsDealership#693688a87068
+      title: Honest John's Dealership
+      text:  Saying Saul Goodman might represent this trope is like suggesting that water could, perhap…
+ 183  EXAMPLE Main/HonestJohnsDealership#12c9044ebf6f
+      title: Honest John's Dealership
+      text:  Inverted with the gun dealer who sells Walt his revolver, who actually tries to talk Walt …
+ 184  EXAMPLE Main/HopeSpot#2d0c13c37b64  [spoilers:1]
+      title: Hope Spot
+      text:  Inverted with Gus Fring's death. After Hector detonates himself, Gus Fring walks out of th…
+ 185  EXAMPLE Main/HopeSpot#9a4bed75cf83  [spoilers:1]
+      title: Hope Spot
+      text:  Walt, in "Gliding Over All". After constantly living under the threat of death from variou…
+ 186  EXAMPLE Main/HopeSpot#d07af1e0365d  [spoilers:1]
+      title: Hope Spot
+      text:  For Hank, Jesse and Gomez and perhaps even Walt himself in the events of "To'hajiilee" and…
+ 187  EXAMPLE Main/HopeSpot#56b1bd001700  [spoilers:1]
+      title: Hope Spot
+      text:  After realizing that Skyler and Walt Jr. had truly turned against him, Walt proceeds to ki…
+ 188  EXAMPLE Main/HopeSpot#4d69a3c2fb06  [spoilers:1]
+      title: Hope Spot
+      text:  In "Granite State", Jesse nearly escapes the Aryan compound, after fooling Todd, not notic…
+ 189  ENTRY   Main/HowTheyTreatTheHelp
+      title: How They Treat the Help
+      text:  How They Treat the Help: Walt gives a $100 tip to the kind waitress in the season 5 premie…
+ 190  EXAMPLE Main/HowWeGotHere#a2f3f8b7b216
+      title: How We Got Here
+      text:  The episodes "Pilot", "Crazy Handful of Nothin'", "Grilled", "Breakage", "ABQ", and "Bug".
+ 191  EXAMPLE Main/HowWeGotHere#1e5edfb2113b
+      title: How We Got Here
+      text:  The entire second season is the journey towards a grim future which was teased at the star…
+ 192  EXAMPLE Main/HowWeGotHere#d389cd8852c8  [spoilers:1]
+      title: How We Got Here
+      text:  "Live Free or Die", the first episode of the final season, starts with a glimpse to a year…
+ 193  EXAMPLE Main/HowWeGotHere#30377a6487e6
+      title: How We Got Here
+      text:  "Blood Money", the premiere episode of the second half of Season 5 starts off after the M6…
+ 194  ENTRY   Main/HumansAreBastards
+      title: Humans Are Bastards
+      text:  Humans Are Bastards: Rare are characters who aren’t heavily flawed or absolute scumbags. H…
+ 195  EXAMPLE Main/HumiliationConga#2a4c0d99c19d
+      title: Humiliation Conga
+      text:  Jesse suffers one in "Down", which leaves him broke and homeless, with no one to help him,…
+ 196  EXAMPLE Main/HumiliationConga#60d57c6eef8d
+      title: Humiliation Conga
+      text:  Season 4 is one long one for Walt.
+ 197  EXAMPLE Main/HumiliationConga#ab300d5a33e5  [spoilers:1]
+      title: Humiliation Conga
+      text:  Season 5's first half is one for Mike up until his death.
+ 198  EXAMPLE Main/HumiliationConga#df72831b593a  [spoilers:1]
+      title: Humiliation Conga
+      text:  Walt himself suffers a nasty one in Season 5. His cancer returns, his brother-in-law is ki…
+ 199  ENTRY   Main/HurricaneOfEuphemisms
+      title: Hurricane of Euphemisms
+      text:  Hurricane of Euphemisms: At one point Jesse talks about all the "mad cheddar" they're goin…
+ 200  ENTRY   Main/HypocriticalHumour
+      title: Hypocritical Humour
+      text:  Hypocritical Humour: A rare example of an inversion. In "Live Free Or Die" Saul wonders al…
+ 201  ENTRY   Main/Hypocrite
+      title: Hypocrite
+      text:  Hypocrite: Jesse refuses to provide meth to Andrea once he learns she has a child, angrily…
+ 202  ENTRY   Main/IAmTheNoun
+      title: I Am the Noun!
+      text:  I Am the Noun!: Walt's Badass Boast to Skyler. "I am the danger. [...] I am the one who kn…
+ 203  ENTRY   Main/IAmNotWeasel
+      title: I Am Not Weasel
+      text:  I Am Not Weasel: Golden Moth Chemical, the company that supplies Gus with chemicals for hi…
+ 204  ENTRY   Main/IHaveYourWife  [spoilers:3]
+      title: I Have Your Wife
+      text:  I Have Your Wife: The neo-Nazis coerce Jesse into cooking meth for them by murdering Andre…
+ 205  ENTRY   Main/IKnowYouKnowIKnow  [spoilers:2]
+      title: I Know You Know I Know
+      text:  I Know You Know I Know: Hank and Walt play this game for a bit after Hank finds out Walt's…
+ 206  EXAMPLE Main/INeedAFreakingDrink#7ecd3af621cd
+      title: I Need a Freaking Drink
+      text:  At the baby shower, Hank turns to Walt and asks if he has anything stronger than beer.
+ 207  EXAMPLE Main/INeedAFreakingDrink#3ed2229efc2b
+      title: I Need a Freaking Drink
+      text:  Then at the party celebrating Walt's remission, Walt goes to drink with Hank and then star…
+ 208  EXAMPLE Main/IdiosyncraticEpisodeNaming#653e0d6bcb2c  [spoilers:1]
+      title: Idiosyncratic Episode Naming
+      text:  Several season 2 episode names clue the viewer in on the initially out-of-the-blue disaste…
+ 209  EXAMPLE Main/IdiosyncraticEpisodeNaming#ad0a462e7856
+      title: Idiosyncratic Episode Naming
+      text:  Several episodes such as "Negro Y Azul", "No Más" and "Salud" among others have titles in …
+ 210  EXAMPLE Main/IdiosyncraticEpisodeNaming#2781da4bcab5
+      title: Idiosyncratic Episode Naming
+      text:  Similarly, "Mandala" is a Sanskrit word.
+ 211  EXAMPLE Main/IdiosyncraticEpisodeNaming#d1928420a132
+      title: Idiosyncratic Episode Naming
+      text:  Season 3 has a lot of episode titles based on things that come into play in the last five …
+ 212  EXAMPLE Main/IdiosyncraticEpisodeNaming#2b1b09b2d60f
+      title: Idiosyncratic Episode Naming
+      text:  Season 4 has had the habit of naming a lot of its episodes after objects that play into th…
+ 213  ENTRY   Main/IgnoredEpiphany  [spoilers:1]
+      title: Ignored Epiphany
+      text:  Ignored Epiphany: In "Granite State," Walter, after hearing that his son flat-out refuses …
+ 214  ENTRY   Main/ImperialStormtrooperMarksmanshipAcademy  [spoilers:1]
+      title: Imperial Stormtrooper Marksmanship Academy
+      text:  Imperial Stormtrooper Marksmanship Academy: "To'hajiilee" ends with Hank and Gomez up agai…
+ 215  ENTRY   Main/ImpliedDeathThreat  [spoilers:1]
+      title: Implied Death Threat
+      text:  Implied Death Threat: "Blood Money" has Walt deliver one: "If you don’t know who I am, may…
+ 216  ENTRY   Main/ImMelting
+      title: I'm Melting!
+      text:  I'm Melting!: In an early moment demonstrating the importance of chemistry knowledge, Walt…
+ 217  ENTRY   Main/ImprobablyCoolCar
+      title: Improbably Cool Car
+      text:  Improbably Cool Car: Discussed. Walt buys Junior a Dodge Challenger, to which Skyler immed…
+ 218  EXAMPLE Main/IncurableCoughOfDeath#5f17a6c9992b
+      title: Incurable Cough of Death
+      text:  Walt's coughing in the pilot is a sign of his cancer.
+ 219  EXAMPLE Main/IncurableCoughOfDeath#7a6562b9858d
+      title: Incurable Cough of Death
+      text:  Subverted in the episode where he starts coughing up blood and panics, but it turns out th…
+ 220  EXAMPLE Main/IncurableCoughOfDeath#21f9aebdb262  [spoilers:1]
+      title: Incurable Cough of Death
+      text:  Played straight again in season five; when his cancer comes back, he starts coughing again…
+ 221  ENTRY   Main/IndyPloy
+      title: Indy Ploy
+      text:  Indy Ploy: Walt's "thinking on his feet" attempts to obscure the truth about his second li…
+ 222  ENTRY   Main/InformedAttribute
+      title: Informed Attribute
+      text:  Informed Attribute: Downplayed. Jack Welker’s Gang is a Neo-Nazi gang (implied to be The A…
+ 223  ENTRY   Main/InJoke
+      title: In-Joke
+      text:  In-Joke: In the pilot, Hank's irresponsible and unsafe demonstration of the .40 caliber Gl…
+ 224  ENTRY   Main/InsistentTerminology
+      title: Insistent Terminology
+      text:  Insistent Terminology: Hank collects "minerals," not "rocks." Hank: Jesus Christ, Marie.
+ 225  ENTRY   Main/InspectorJavert
+      title: Inspector Javert
+      text:  Inspector Javert: Hank increasingly becomes this as he chases Heisenberg and his blue meth…
+ 226  EXAMPLE Main/InsideJob#5d81345ab6b3
+      title: Inside Job
+      text:  Walter steals hard-to-get equipment and chemicals from his high school to kick-start his m…
+ 227  EXAMPLE Main/InsideJob#eed66da25f17
+      title: Inside Job
+      text:  For a short time, Jesse skims some of the excess product he and Walt produce for Gus Fring…
+ 228  EXAMPLE Main/InsideJob#c2b6f3152c1e
+      title: Inside Job
+      text:  It comes out that Gus Fring's operation is supplied with methylamine by Lydia, who facilit…
+ 229  EXAMPLE Main/InsideJob#232e1192a6b0
+      title: Inside Job
+      text:  Later, Lydia uses her inside knowledge of Madrigal's freight shipments to tip Walt's crew …
+ 230  ENTRY   Main/InspirationalInsult
+      title: Inspirational Insult
+      text:  Inspirational Insult: In an early episode, Jesse finds an old test paper marked by Walt, o…
+ 231  EXAMPLE Main/InsufferableGenius#da2f873c49e3
+      title: Insufferable Genius
+      text:  Walt cooks the best meth, and he's not afraid to remind people of it.
+ 232  EXAMPLE Main/InsufferableGenius#5b96a071578c  [spoilers:1]
+      title: Insufferable Genius
+      text:  The cartel's meth cook Benicio Fuentes also counts as this. He repeatedly criticizes Jesse…
+ 233  ENTRY   Main/InterfaceSpoiler
+      title: Interface Spoiler
+      text:  Interface Spoiler: Defied by Netflix. The last six episodes of the show are given descript…
+ 234  EXAMPLE Main/InternalReveal#1a62a47fb7f7  [spoilers:2]
+      title: Internal Reveal
+      text:  Walter watching Jane die in season 2. The threat of that truth being revealed added tensio…
+ 235  EXAMPLE Main/InternalReveal#b6e5430aea85  [spoilers:1]
+      title: Internal Reveal
+      text:  Walt poisoning Brock was another case, though it was not kept secret for as long.
+ 236  EXAMPLE Main/InternalReveal#da4da507a8f6  [spoilers:1]
+      title: Internal Reveal
+      text:  Walt killing Mike is also set up like this, however both Jesse and Saul quickly deduce tha…
+ 237  EXAMPLE Main/InVinoVeritas#ac4d8ece3801
+      title: In Vino Veritas
+      text:  Walt lets it slip that he has a second cell phone whilst under the influence of anesthetic…
+ 238  EXAMPLE Main/InVinoVeritas#e53301df64b8
+      title: In Vino Veritas
+      text:  Walt also lets his pride get the better of him while drunk and shoots down Hank's notion t…
+ 239  EXAMPLE Main/InVinoVeritas#1ab355dcfdcb
+      title: In Vino Veritas
+      text:  After taking prescription pain medication, Walt calls his son by Jesse's name, giving away…
+ 240  EXAMPLE Main/InterruptedIntimacy#d6f9c49723f4
+      title: Interrupted Intimacy
+      text:  In the pilot episode, Jesse escapes the raid on his cook house because he happens to be ha…
+ 241  EXAMPLE Main/InterruptedIntimacy#ab85ae7a4edd  [spoilers:1]
+      title: Interrupted Intimacy
+      text:  In In Season 4, Episode 5, Skyler and Walt have sex to celebrate their signing of the pape…
+ 242  ENTRY   Main/InvulnerableKnuckles
+      title: Invulnerable Knuckles
+      text:  Invulnerable Knuckles: Averted. Whenever a character punches something, be it an object or…
+ 243  EXAMPLE Main/IronicBirthday#f0583310c1b9
+      title: Ironic Birthday
+      text:  In the very first episode, he comes home from the hospital on his 50th birthday, having ju…
+ 244  EXAMPLE Main/IronicBirthday#a274b0812b0c  [spoilers:1]
+      title: Ironic Birthday
+      text:  Season five episode "51" features his next birthday (with a lampshade hung on how long a y…
+ 245  EXAMPLE Main/IronicBirthday#218bfc829791  [spoilers:1]
+      title: Ironic Birthday
+      text:  The Cold Open to season five shows his 52nd birthday in a flash-forward, "celebrated" alon…
+ 246  ENTRY   Main/IronButtMonkey
+      title: Iron Butt-Monkey
+      text:  Iron Butt-Monkey: Walt's Pontiac Aztek. While portrayed as an Alleged Car early in the ser…
+ 247  EXAMPLE Main/IronicEcho#944d27b36738
+      title: Ironic Echo
+      text:  After Skyler confronts Jesse and almost catches him moving Emilio's body, he angrily tells…
+ 248  EXAMPLE Main/IronicEcho#dd6f8e6f07d9
+      title: Ironic Echo
+      text:  Saul's speech to Walt about his looming divorce in S3E2, "Caballo Sin Nombre", is very rem…
+ 249  EXAMPLE Main/IronicEcho#2da9a1640f03
+      title: Ironic Echo
+      text:  Walt's speech to Skyler in the second episode of season 5 about how doing bad things for t…
+ 250  EXAMPLE Main/IronicEcho#8fa41fd70b66  [spoilers:1]
+      title: Ironic Echo
+      text:  In "Cornered", Walt says to Skyler: "I am not in danger, Skyler. I am the danger." In "Fif…
+ 251  EXAMPLE Main/IronicEcho#9687b28792fa
+      title: Ironic Echo
+      text:  Todd's explanation of his motives repeats Walt's argument to Gus about Gale nearly word-fo…
+ 252  EXAMPLE Main/IronicEcho#f46a03b1b1c0  [spoilers:1]
+      title: Ironic Echo
+      text:  In "Fifty-One", Skyler says to Walt: "I will not have my children living in a house where …
+ 253  EXAMPLE Main/IronicEcho#4b46bd9a77da
+      title: Ironic Echo
+      text:  Walt keeping up a façade as an overly friendly staffmember when Lydia comes to the car was…
+ 254  EXAMPLE Main/IronicEcho#61ff246f8b07
+      title: Ironic Echo
+      text:  When Saul suggests having Jesse killed Walt flatly refuses, with the reasoning that "he's …
+ 255  EXAMPLE Main/Irony#155de79e6b0a  [spoilers:1]
+      title: Irony
+      text:  The entire reason Walt became a meth cook was because he didn't want (in his warped view) …
+ 256  EXAMPLE Main/Irony#6830f0e36032
+      title: Irony
+      text:  In Season 3, Gustavo Fring is incredibly respectful to Walter White, and does everything i…
+ 257  EXAMPLE Main/Irony#4f3bdc411e66
+      title: Irony
+      text:  When Walter's doctor reveals to the White-Schrader family that his cancer has gone into re…
+ 258  EXAMPLE Main/Irony#226bceda672b
+      title: Irony
+      text:  Also, Walt has taken a great many drug dealers off the streets during his tenure as a drug…
+ 259  ENTRY   Main/IrrevocableOrder  [spoilers:3]
+      title: Irrevocable Order
+      text:  Irrevocable Order: A variation in "To'hajiilee"; thinking that Jesse has lured him to a re…
+ 260  ENTRY   Main/ItGetsEasier  [spoilers:1]
+      title: It Gets Easier
+      text:  It Gets Easier: Walt agonizes over his first hands-on kill for almost an entire episode, a…
+ 261  ENTRY   Main/ItsAlwaysSpring
+      title: It's Always Spring
+      text:  It's Always Spring: Despite the fact that the entire series takes place over the course of…
+ 262  ENTRY   Main/ItsCuban
+      title: It's Cuban
+      text:  It's Cuban: Hank and Walt share some Cuban cigars. Walt takes the opportunity to open up a…
+ 263  ENTRY   Main/ItsForABook
+      title: It's for a Book
+      text:  It's for a Book: When Skyler thinks that Walt is smoking pot, she asks Marie about how cou…
+ 264  ENTRY   Main/ItsProbablyNothing
+      title: It's Probably Nothing
+      text:  It's Probably Nothing: When Todd brings up his prison connections, Walt asks Mike if that …
+ 265  ENTRY   Main/ItWillNeverCatchOn
+      title: It Will Never Catch On
+      text:  It Will Never Catch On: When Gus and his brotherly friend pitch the idea of mass producing…
+ 266  EXAMPLE Main/JerkWithAHeartOfGold#1859b073effa
+      title: Jerk with a Heart of Gold
+      text:  Walter's brother-in-law, Hank, is a loud, lewd and frequently obnoxious DEA agent. This is…
+ 267  EXAMPLE Main/JerkWithAHeartOfGold#68a3ef71861f
+      title: Jerk with a Heart of Gold
+      text:  Jesse is an abrasive, thickheaded junkie, but underneath it all he's far gentler than Walt…
+ 268  ENTRY   Main/JitterCam
+      title: Jitter Cam
+      text:  Jitter Cam: The show is shot mostly on handheld cameras, with the camera operators told to…
+ 269  EXAMPLE Main/JumpingOffTheSlipperySlope#0f02270a9a5c  [spoilers:1]
+      title: Jumping Off the Slippery Slope
+      text:  While Skyler compromises her morals throughout the series because of her relationship with…
+ 270  EXAMPLE Main/JumpingOffTheSlipperySlope#148b8aec456a  [spoilers:3]
+      title: Jumping Off the Slippery Slope
+      text:  Since the entire show revolves around Walt's journey from "Mr. Chips to Scarface" there ar…
+ 271  ENTRY   Main/JustifiedCriminal
+      title: Justified Criminal
+      text:  Justified Criminal: The main crux of the series, though pride is a big factor too, showing…
+ 272  EXAMPLE Main/KarmaHoudiniWarranty+Main/LaserGuidedKarma#c92615a58759  [spoilers:1]
+      title: Karma Houdini Warranty/Laser-Guided Karma
+      text:  Vince Gilligan has stated that one Central Theme of the series is that all actions have co…
+ 273  EXAMPLE Main/KarmaHoudiniWarranty+Main/LaserGuidedKarma#ceb2508a05ca
+      title: Karma Houdini Warranty/Laser-Guided Karma
+      text:  The only two people in the entire series who get away with wounding Walter’s pride are the…
+ 274  EXAMPLE Main/KeepingTheEnemyClose#5d75aa1287d4
+      title: Keeping the Enemy Close
+      text:  Drug trafficker Gus Fring builds a close relationship with the local DEA office, giving hi…
+ 275  EXAMPLE Main/KeepingTheEnemyClose#222525e26ace
+      title: Keeping the Enemy Close
+      text:  Done unintentionally by Walt, whose relationship with Hank pre-dates his entry in the drug…
+ 276  ENTRY   Main/KickedUpstairs
+      title: Kicked Upstairs
+      text:  Kicked Upstairs: Hank's promotion to ASAC. Although Hank deserves the promotion due to bri…
+ 277  EXAMPLE Main/KickTheDog#d73112bf7680
+      title: Kick the Dog
+      text:  After Walt forces Bogdan to sell him the car wash in Season 4, he refuses to let Bogdan ta…
+ 278  EXAMPLE Main/KickTheDog#cdbbbfd42a09  [spoilers:1]
+      title: Kick the Dog
+      text:  Walt does this to Jesse in "Ozymandias" when he admits letting Jane die in her overdose.
+ 279  EXAMPLE Main/KickTheDog#1e2f42bb5f7e  [spoilers:1]
+      title: Kick the Dog
+      text:  The climax of season four which has Walt (non-fatally) poison Brock in order to manipulate…
+ 280  EXAMPLE Main/KilledMidSentence#3da689d5235d  [spoilers:1]
+      title: Killed Mid-Sentence
+      text:  Max in "Hermanos". "Por favor, se lo—"
+ 281  EXAMPLE Main/KilledMidSentence#604fe8c55fcf  [spoilers:1]
+      title: Killed Mid-Sentence
+      text:  Hank in "Ozymandias". "Do what you're gonna do—"
+ 282  EXAMPLE Main/KilledMidSentence#fb07c5d5e7fd  [spoilers:1]
+      title: Killed Mid-Sentence
+      text:  Jack in "Felina". "You pull that trigger, you'll never—"
+ 283  ENTRY   Main/TheKillerBecomesTheKilled  [spoilers:1]
+      title: The Killer Becomes the Killed
+      text:  The Killer Becomes the Killed: Tuco, Spooge, The Cousins, Gus, Mike, Jack and Todd to name…
+ 284  EXAMPLE Main/KillingInSelfDefense#e95ea5a864cb
+      title: Killing in Self-Defense
+      text:  While tracking down Walt, who has been kidnapped by Tuco, Hank stumbles upon a bloodied Tu…
+ 285  EXAMPLE Main/KillingInSelfDefense#df8bd12cf7fc
+      title: Killing in Self-Defense
+      text:  His encounter with the Salamanca Twins is a lot messier: desiring revenge on Hank for kill…
+ 286  ENTRY   Main/KinkyRolePlaying
+      title: Kinky Role-Playing
+      text:  Kinky Role-Playing: In the first minisode, Marie cuffs Hank to the bed and shows up in a s…
+ 287  EXAMPLE Main/KitschyLocalCommercial#4868ccdc0b30
+      title: Kitschy Local Commercial
+      text:  Saul Goodman's ads. "Better Call Saul!"
+ 288  EXAMPLE Main/KitschyLocalCommercial#d73ac521dea3
+      title: Kitschy Local Commercial
+      text:  Also when Walt is talking to Domingo, he brings up the late night television commercials t…
+ 289  ENTRY   Main/KnowsAGuyWhoKnowsAGuy  [spoilers:1]
+      title: Knows a Guy Who Knows a Guy
+      text:  Knows a Guy Who Knows a Guy: How Saul arranges a meeting between Walter White and Gus Frin…
+ 290  ENTRY   Main/KnuckleTattoos  [spoilers:1]
+      title: Knuckle Tattoos
+      text:  Knuckle Tattoos: One of Jack's men has a phrase tattooed across his knuckles, which can be…
+ 291  ENTRY   Main/LackOfEmpathy
+      title: Lack of Empathy
+      text:  Lack of Empathy: Todd. The other members of his uncle's gang are vicious, nasty, and aggre…
+ 292  ENTRY   Main/LadyInAPowerSuit
+      title: Lady in a Power Suit
+      text:  Lady in a Power Suit: Lydia is a subversion. She's virtually never seen without a suit and…
+ 293  ENTRY   Main/LastNameBasis
+      title: Last-Name Basis
+      text:  Last-Name Basis: Jesse only refers to Walter as anything other than "Mr. White" once in th…
+ 294  ENTRY   Main/LateArrivalSpoiler  [spoilers:1]
+      title: Late-Arrival Spoiler
+      text:  Late-Arrival Spoiler: The teaser ad for Season 5 is the scene of Gus Fring's death.
+ 295  ENTRY   Main/LaughingMad  [spoilers:1]
+      title: Laughing Mad
+      text:  Laughing Mad: Walt's reaction when Skyler tells him she gave Ted the $600,000 they needed …
+ 296  EXAMPLE Main/LaserGuidedKarma#eff9d2667bcd
+      title: Laser-Guided Karma
+      text:  Hank has an interaction with Wendy in which he openly mocks and belittles her. Later, she …
+ 297  EXAMPLE Main/LaserGuidedKarma#901d1b15a160
+      title: Laser-Guided Karma
+      text:  Bogdan is a Jerk with a Heart of Jerk who names a ridiculous price (well over 20x the actu…
+ 298  EXAMPLE Main/LaserGuidedKarma#f89cf3ad2843  [spoilers:1]
+      title: Laser-Guided Karma
+      text:  At the end of the fourth season, Don Eladio, the head of the Mexican cartel dies at the ex…
+ 299  EXAMPLE Main/LaserGuidedKarma#17df2689faeb  [spoilers:1]
+      title: Laser-Guided Karma
+      text:  Ted, who after refusing to use the money Skyler gave him for her intended purpose (to avoi…
+ 300  EXAMPLE Main/LaserGuidedKarma#5ec1312b590e  [spoilers:2]
+      title: Laser-Guided Karma
+      text:  This happens to Walt in "Ozymandias" in brutal fashion: Uncle Jack executes Hank and takes…
+ 301  EXAMPLE Main/LaserGuidedKarma#fb1f24eea16b  [spoilers:2]
+      title: Laser-Guided Karma
+      text:  Since Lydia's debut episode, she was a Karma Houdini. However, in "Felina", Lydia finally …
+ 302  EXAMPLE Main/LaserGuidedKarma#8ba621bde035  [spoilers:1]
+      title: Laser-Guided Karma
+      text:  Vanco, who spent most of his time in "Negro y Azul" making fun of Hank for not speaking Sp…
+ 303  ENTRY   Main/LaserSight  [spoilers:2]
+      title: Laser Sight
+      text:  Laser Sight: Walt intimidates Elliot and Gretchen by telling them he spent $200,000 hiring…
+ 304  EXAMPLE Main/LastEpisodeThemeReprise#0530ab5ceb2d  [spoilers:1]
+      title: Last Episode Theme Reprise
+      text:  In the second last episode, as a build up to the Grand Finale, has Walter give the DEA his…
+ 305  EXAMPLE Main/LastEpisodeThemeReprise#464b3b194fb3
+      title: Last Episode Theme Reprise
+      text:  The full theme also plays over the credits of the Series Finale.
+ 306  ENTRY   Main/LastRequest
+      title: Last Request
+      text:  Last Request: Thinking she's about to be killed, Lydia's only request is that her body not…
+ 307  EXAMPLE Main/LawmanGoneBad#0b8f1a184136  [spoilers:1]
+      title: Lawman Gone Bad
+      text:  Walt cooks up a false confession that hinges on framing Hank as one of these who manipulat…
+ 308  EXAMPLE Main/LawmanGoneBad#4638371e2f50
+      title: Lawman Gone Bad
+      text:  Ex-cop turned hitman Mike qualifies too. He tells Walt about illegally threatening a suspe…
+ 309  EXAMPLE Main/LeaningOnTheFourthWall#9e05d291bc5d
+      title: Leaning on the Fourth Wall
+      text:  "High school teacher turned meth dealer, brother-in-law's in the DEA? That'd make one hell…
+ 310  EXAMPLE Main/LeaningOnTheFourthWall#bbeff64cbdbd
+      title: Leaning on the Fourth Wall
+      text:  In season 5, Marie remarks that the time between Walt's 50th and 51st birthdays felt much …
+ 311  EXAMPLE Main/LeaningOnTheFourthWall#96cde7f0f5e6
+      title: Leaning on the Fourth Wall
+      text:  In "Rabid Dog", a fifth season episode, Marie's shrink states that "There is no problem, n…
+ 312  EXAMPLE Main/LeaningOnTheFourthWall#cc262ef04c22
+      title: Leaning on the Fourth Wall
+      text:  Walt himself echoes the "This'll make one hell of a story" line when he's impersonating a …
+ 313  EXAMPLE Main/LeaveNoWitnesses#5d6b00bf1920  [spoilers:1]
+      title: Leave No Witnesses
+      text:  In "Dead Freight," Mike points out that in his experience, "there are two kinds of heist; …
+ 314  EXAMPLE Main/LeaveNoWitnesses#e6fe8465c223
+      title: Leave No Witnesses
+      text:  In "Gliding Over All", Walt has 10 people who were part of Gus's organization murdered in …
+ 315  ENTRY   Main/LegFocus
+      title: Leg Focus
+      text:  Leg Focus: Lydia. She gets a lot of Feet First Introductions, and in general, the camera s…
+ 316  ENTRY   Main/LetsGetDangerous
+      title: Let's Get Dangerous!
+      text:  Let's Get Dangerous!: A big draw of the show is watching the timid, suburban dad with a bi…
+ 317  ENTRY   Main/LettingTheAirOutOfTheBand
+      title: Letting the Air out of the Band
+      text:  Letting the Air out of the Band: The scene with Badger and Jesse in "Gray Matter" ends wit…
+ 318  ENTRY   Main/ALighterShadeOfBlack  [spoilers:1]
+      title: A Lighter Shade of Black
+      text:  A Lighter Shade of Black: A common motif in the series, with Walt and Jesse as nicer drug …
+ 319  ENTRY   Main/LikeBrotherAndSister  [spoilers:1]
+      title: Like Brother and Sister
+      text:  Like Brother and Sister: Walt and Marie had this type of relationship for the majority of …
+ 320  EXAMPLE Main/LiteraryAllusionTitle#018adea82d07
+      title: Literary Allusion Title
+      text:  "Caballo Sin Nombre" is Spanish for "A Horse With No Name", a song which appears in the ep…
+ 321  EXAMPLE Main/LiteraryAllusionTitle#f4fe590623b5
+      title: Literary Allusion Title
+      text:  "Gliding Over All", from Walt Whitman's Leaves of Grass.
+ 322  EXAMPLE Main/LiteraryAllusionTitle#aad2ac19bcf8
+      title: Literary Allusion Title
+      text:  "Ozymandias", from Percy Bysshe Shelley's poem. It's about what happens when someone's rep…
+ 323  EXAMPLE Main/LiteraryAllusionTitle#e23dfa2a85da  [spoilers:1]
+      title: Literary Allusion Title
+      text:  "Felina" is a reference to Marty Robbins' song "El Paso", which is about a cowboy returnin…
+ 324  EXAMPLE Main/LittleNo#75210fcc0861  [spoilers:1]
+      title: Little "No"
+      text:  Jesse lets out a heartrending one after Todd shoots the kid at the end of "Dead Freight".
+ 325  EXAMPLE Main/LittleNo#beb32072687b
+      title: Little "No"
+      text:  Jesse's response to Walt offering him $1.5 million in "One Minute".
+ 326  ENTRY   Main/LivingIsMoreThanSurviving
+      title: Living Is More than Surviving
+      text:  Living Is More than Surviving: Discussed by Walt in "Gray Matter" when his family is tryin…
+ 327  EXAMPLE Main/LockedInAFreezer#1ce3dc6eaa43
+      title: Locked in a Freezer
+      text:  "4 Days Out", where Walt and Jesse are lost in the desert with no water and a flat battery…
+ 328  EXAMPLE Main/LockedInAFreezer#b446f472cc63
+      title: Locked in a Freezer
+      text:  In "Fly", they're trapped in the lab, unable to cook until they manage to decontaminate th…
+ 329  EXAMPLE Main/LookOnMyWorksYeMightyAndDespair#d5bda12b61ae
+      title: Look on My Works, Ye Mighty, and Despair
+      text:  And just to drive the point home, a rather ominous promo for the episode in question featu…
+ 330  EXAMPLE Main/LookOnMyWorksYeMightyAndDespair#74c3a4da6bf6
+      title: Look on My Works, Ye Mighty, and Despair
+      text:  Walt's empire is fleeting even from the audience's standpoint: after 53 episodes of its pa…
+ 331  ENTRY   Main/LoveMakesYouEvil
+      title: Love Makes You Evil
+      text:  Love Makes You Evil: Walt claims that his love for his family is his only motivation for e…
+ 332  EXAMPLE Main/LuredIntoATrap#31deaa846016  [spoilers:1]
+      title: Lured into a Trap
+      text:  Walt uses Gus' hatred of the Salamancas to get Hector to kill him.
+ 333  EXAMPLE Main/LuredIntoATrap#1c8752a825b9  [spoilers:1]
+      title: Lured into a Trap
+      text:  Jesse and Hank trick Walt into driving to where he stole his money and then arrest him.
+ 334  EXAMPLE Main/LuredIntoATrap#cc46e88e48c8  [spoilers:1]
+      title: Lured into a Trap
+      text:  Walt does this to Jack's neo-Nazi gang in the final episode.

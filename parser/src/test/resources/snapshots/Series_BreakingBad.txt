@@ -1,0 +1,13 @@
+# Breaking Bad
+path: Series/BreakingBad
+type: WORK (Series)
+cards: 2
+related: Awesome <Awesome/BreakingBad>, AwesomeMusic <AwesomeMusic/BreakingBad>, Characters <Characters/BreakingBad>, DrinkingGame <DrinkingGame/BreakingBad>, FanficRecs <FanficRecs/BreakingBad>, FanWorks <FanWorks/BreakingBad>, Franchise <Franchise/BreakingBad>, Fridge <Fridge/BreakingBad>, Funny <Funny/BreakingBad>, Headscratchers <Headscratchers/BreakingBad>, Heartwarming <Heartwarming/BreakingBad>, Laconic <Laconic/BreakingBad>, NightmareFuel <NightmareFuel/BreakingBad>, Pantheon <Pantheon/BreakingBad>, Quotes <Quotes/BreakingBad>, Recap <Recap/BreakingBad>, ShoutOut <ShoutOut/BreakingBad>, TearJerker <TearJerker/BreakingBad>, Trivia <Trivia/BreakingBad>, WMG <WMG/BreakingBad>, YMMV <YMMV/BreakingBad>, VideoExamples <VideoExamples/BreakingBad>, ▶︎Watch 46 videos <Unknown/Series_BreakingBad>
+split parts: Tropes A to B <BreakingBad/TropesAToB>, Tropes C to D <BreakingBad/TropesCToD>, Tropes E to L <BreakingBad/TropesEToL>, Tropes M to R <BreakingBad/TropesMToR>, Tropes S to Z <BreakingBad/TropesSToZ>
+
+== (top)
+   0  INTRO   intro
+      text:  Unstable. Volatile. Dangerous. And that's just the chemistry. "Some straight like you, gia…
+== TropEs
+   1  TEXT    x:f39fd47e4469
+      text:  ♫ My baby blue... ♫
