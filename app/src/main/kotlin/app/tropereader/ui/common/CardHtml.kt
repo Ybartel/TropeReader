@@ -39,14 +39,14 @@ val LocalSpoilerMode = staticCompositionLocalOf { SpoilerMode.HIDE }
 fun CardContent(card: Card, onLink: (String) -> Unit, modifier: Modifier = Modifier) {
     var tapped by rememberSaveable(card.key) { mutableStateOf(emptySet<String>()) }
     val showAll = LocalSpoilerMode.current == SpoilerMode.SHOW
-    val reveal: (String) -> Unit = { tapped = tapped + it }
+    val spoilers = Spoilers(showAll, tapped) { tapped = tapped + it }
     Column(modifier) {
         if (card.kind == CardKind.EXAMPLE) {
             card.title?.let { Text(it, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold) }
             card.leadHtml?.let {
                 Spacer(Modifier.height(4.dp))
                 Text(
-                    cardHtml(it, "lead", showAll, tapped, reveal, onLink),
+                    cardHtml(it, "lead", spoilers, onLink),
                     style = MaterialTheme.typography.bodyMedium,
                     color = MaterialTheme.colorScheme.onSurfaceVariant,
                 )
@@ -56,7 +56,7 @@ fun CardContent(card: Card, onLink: (String) -> Unit, modifier: Modifier = Modif
             Text("Introduction", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
             Spacer(Modifier.height(12.dp))
         }
-        Text(cardHtml(card.bodyHtml, "body", showAll, tapped, reveal, onLink), style = MaterialTheme.typography.bodyLarge)
+        CardBody(card.key, card.bodyHtml, spoilers, onLink)
         val hidden = if (showAll) 0 else card.spoilerCount() - tapped.size
         if (hidden > 0) {
             Spacer(Modifier.height(16.dp))
@@ -69,22 +69,20 @@ fun CardContent(card: Card, onLink: (String) -> Unit, modifier: Modifier = Modif
     }
 }
 
+/** Which spoilers show: all of them (F6.2), or the ones tapped (F6.1), identified as `<part>:<index>`. */
+internal class Spoilers(val showAll: Boolean, val tapped: Set<String>, val reveal: (String) -> Unit) {
+    fun isShown(id: String) = showAll || id in tapped
+}
+
 private fun Card.spoilerCount(): Int =
     SPOILER.findAll(bodyHtml).count() + (leadHtml?.let { SPOILER.findAll(it).count() } ?: 0)
 
 /**
  * Card HTML as styled text. Spoilers are marked with private-use characters before conversion, then
- * drawn as solid blocks (hidden) or highlighted (revealed). Images are dropped for now (F3.8).
+ * drawn as solid blocks (hidden) or highlighted (revealed). [part] keeps spoiler ids unique across a card's blocks.
  */
 @Composable
-private fun cardHtml(
-    html: String,
-    part: String,
-    showAll: Boolean,
-    revealed: Set<String>,
-    onReveal: (String) -> Unit,
-    onLink: (String) -> Unit,
-): AnnotatedString {
+internal fun cardHtml(html: String, part: String, spoilers: Spoilers, onLink: (String) -> Unit): AnnotatedString {
     val colors = MaterialTheme.colorScheme
     val text = AnnotatedString.fromHtml(
         markSpoilers(html.replace(IMAGE, "")),
@@ -107,10 +105,10 @@ private fun cardHtml(
             val end = raw.indexOf(SPOILER_END, start + 1).let { if (it < 0) raw.length else it }
             val id = "$part:${index++}"
             val content = text.subSequence(start + 1, end)
-            if (showAll || id in revealed) {
+            if (spoilers.isShown(id)) {
                 withStyle(shown) { append(content) }
             } else {
-                withLink(LinkAnnotation.Clickable(id) { onReveal(id) }) { withStyle(hidden) { append(content) } }
+                withLink(LinkAnnotation.Clickable(id) { spoilers.reveal(id) }) { withStyle(hidden) { append(content) } }
             }
             from = minOf(end + 1, raw.length)
         }

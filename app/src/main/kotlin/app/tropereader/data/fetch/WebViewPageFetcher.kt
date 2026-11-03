@@ -10,7 +10,6 @@ import android.webkit.WebResourceRequest
 import android.webkit.WebResourceResponse
 import android.webkit.WebView
 import android.webkit.WebViewClient
-import app.tropereader.BuildConfig
 import app.tropereader.domain.PageLoadException
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.Dispatchers
@@ -73,7 +72,7 @@ class WebViewPageFetcher @Inject constructor(@ApplicationContext private val con
             javaScriptEnabled = true
             domStorageEnabled = true
             blockNetworkImage = true
-            userAgentString = "$userAgentString TropeReader/${BuildConfig.VERSION_NAME}"
+            userAgentString = SiteHttp.userAgent(context)
         }
         webView.addJavascriptInterface(
             object {

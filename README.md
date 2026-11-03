@@ -24,9 +24,10 @@ Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app li
 - **List view** (F4.5): reader top bar toggles a list of all cards (folder headers, read checks, spoilers blanked in previews, current card highlighted); tapping one jumps to it without marking anything read.
 - **Settings** (gear in the library): spoilers hidden until tapped or always shown (F6.2), text size 85–150% on top of the system font scale, theme (system / light / dark), version number (F11.1). Stored with DataStore: device preferences, not part of the synced user state.
 - **History** (F8): every card shown in the reader is logged (the same card twice in a row counts once), with its name and work so the list needs no page reload. The history screen (clock icon in the library) groups entries by day; tapping one reopens the reader on that card; "Clear" soft-deletes all entries. Schema v3, with migration tests for 2→3 and 1→3. Pages opened from links are not logged yet.
+- **Quotes, tables, images** (F3.8): the parser splits each card body into blocks (`HtmlBlocks`): text, quotes (side bar, italic, "— Author" right-aligned), tables (columns sized from their longest cell, scroll sideways), images (thumbnail with caption; tap for full screen, pinch to zoom). Images are behind the same Cloudflare check as pages, so Coil loads them with the WebView's cookies and exact User-Agent (`SiteHttp`). No real page tested so far has a table: table rendering is covered by the splitting tests only.
 - **Mark page read / unread** (F4.6): reader menu, or each page's menu on the work screen, always with confirmation. Unread clears every read state of the page; the position is kept.
 
-Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
+Not done yet: hiding / reordering pages (F2.4), images inside list items deeper than the card body, Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
 
 ## Reader (step 2)
 
