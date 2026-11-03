@@ -9,6 +9,12 @@ interface ReadingProgressRepository {
 
     suspend fun setRead(pageId: String, tropeKey: String, isRead: Boolean)
 
+    /** Marks all [tropeKeys] read at once (F4.6). */
+    suspend fun markAllRead(pageId: String, tropeKeys: Collection<String>)
+
+    /** Marks every card of the page unread, including cards that have since left the page. */
+    suspend fun markAllUnread(pageId: String)
+
     suspend fun position(pageId: String): String?
 
     suspend fun savePosition(pageId: String, tropeKey: String)

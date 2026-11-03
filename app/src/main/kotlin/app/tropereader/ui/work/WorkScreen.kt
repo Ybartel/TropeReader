@@ -1,6 +1,26 @@
 package app.tropereader.ui.work
 
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Row
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import app.tropereader.domain.PageLoadException
+import app.tropereader.domain.SetPageRead
+import app.tropereader.ui.reader.ConfirmMarkPageDialog
+import kotlinx.coroutines.channels.Channel
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.receiveAsFlow
+import kotlinx.coroutines.launch
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -44,11 +64,28 @@ import javax.inject.Inject
 data class WorkUiState(val work: Work? = null, val pages: List<WorkPageState> = emptyList())
 
 @HiltViewModel
-class WorkViewModel @Inject constructor(savedStateHandle: SavedStateHandle, library: LibraryRepository) : ViewModel() {
+class WorkViewModel @Inject constructor(
+    savedStateHandle: SavedStateHandle,
+    library: LibraryRepository,
+    private val setPageRead: SetPageRead,
+) : ViewModel() {
     private val workId: String = checkNotNull(savedStateHandle[WORK_ID])
+    private val _messages = Channel<String>(Channel.BUFFERED)
+    val messages: Flow<String> = _messages.receiveAsFlow()
 
     val state: StateFlow<WorkUiState> = combine(library.observeWork(workId), library.observePages(workId), ::WorkUiState)
         .stateIn(viewModelScope, SharingStarted.WhileSubscribed(5_000), WorkUiState())
+
+    /** F4.6 from the work screen; a page never opened is loaded first to know its cards. */
+    fun markPage(pageId: String, isRead: Boolean) {
+        viewModelScope.launch {
+            try {
+                setPageRead(pageId, isRead)
+            } catch (e: PageLoadException) {
+                _messages.send(e.message ?: "Could not load this page.")
+            }
+        }
+    }
 
     companion object {
         const val WORK_ID = "workId"
@@ -59,7 +96,11 @@ class WorkViewModel @Inject constructor(savedStateHandle: SavedStateHandle, libr
 @Composable
 fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: WorkViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
+    val snackbar = remember { SnackbarHostState() }
+    var confirm by remember { mutableStateOf<Pair<String, Boolean>?>(null) }
+    LaunchedEffect(viewModel) { viewModel.messages.collect { snackbar.showSnackbar(it) } }
     Scaffold(
+        snackbarHost = { SnackbarHost(snackbar) },
         topBar = {
             TopAppBar(
                 title = { Text(state.work?.title.orEmpty(), maxLines = 1, overflow = TextOverflow.Ellipsis) },
@@ -80,14 +121,45 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
                         headlineContent = { Text(label(page)) },
                         supportingContent = { Text(statusLabel(page)) },
                         trailingContent = {
-                            if (page.status == PageStatus.DONE) {
-                                Icon(Icons.Filled.CheckCircle, contentDescription = "Done", tint = MaterialTheme.colorScheme.primary)
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                if (page.status == PageStatus.DONE) {
+                                    Icon(Icons.Filled.CheckCircle, contentDescription = "Done", tint = MaterialTheme.colorScheme.primary)
+                                }
+                                PageMenu(onMark = { confirm = page.page.id to it })
                             }
                         },
                     )
                     HorizontalDivider()
                 }
             }
+        }
+    }
+    confirm?.let { (pageId, isRead) ->
+        ConfirmMarkPageDialog(
+            isRead = isRead,
+            onConfirm = {
+                viewModel.markPage(pageId, isRead)
+                confirm = null
+            },
+            onDismiss = { confirm = null },
+        )
+    }
+}
+
+@Composable
+private fun PageMenu(onMark: (Boolean) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box {
+        IconButton(onClick = { open = true }) { Icon(Icons.Filled.MoreVert, contentDescription = "Page options") }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("Mark as read") }, onClick = {
+                open = false
+                onMark(true)
+            })
+            DropdownMenuItem(text = { Text("Mark as unread") }, onClick = {
+                open = false
+                onMark(false)
+            })
         }
     }
 }

@@ -164,7 +164,8 @@ private fun WorkItem(summary: WorkSummary, onOpen: () -> Unit, onDelete: () -> U
     ListItem(
         modifier = Modifier.clickable(onClick = onOpen),
         headlineContent = { Text(summary.work.title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
-        overlineContent = { Text(summary.work.mediaType) },
+        // General tropes live in the `Main` namespace.
+        overlineContent = { Text(if (summary.work.mediaType == "Main") "Trope" else summary.work.mediaType) },
         supportingContent = {
             Column(verticalArrangement = Arrangement.spacedBy(6.dp)) {
                 Text(progressLabel(summary))

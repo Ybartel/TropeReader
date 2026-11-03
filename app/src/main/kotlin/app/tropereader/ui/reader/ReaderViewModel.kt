@@ -9,6 +9,7 @@ import app.tropereader.domain.MoveToCard
 import app.tropereader.domain.PageLoadException
 import app.tropereader.domain.ReadingCursor
 import app.tropereader.domain.ReadingProgressRepository
+import app.tropereader.domain.SetPageRead
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -42,6 +43,7 @@ class ReaderViewModel @Inject constructor(
     private val progress: ReadingProgressRepository,
     private val advanceToNextCard: AdvanceToNextCard,
     private val moveToCard: MoveToCard,
+    private val setPageRead: SetPageRead,
 ) : ViewModel() {
     private val pageId: String = checkNotNull(savedStateHandle[PAGE_ID])
     private val _state = MutableStateFlow<ReaderUiState>(ReaderUiState.Loading())
@@ -84,6 +86,23 @@ class ReaderViewModel @Inject constructor(
                 _state.update { (it as? ReaderUiState.Reading)?.copy(cursor = moved) ?: it }
             }
         }
+    }
+
+    /** Jump from the list view (F4.5): never marks anything read, even one card ahead. */
+    fun jumpTo(index: Int) {
+        viewModelScope.launch {
+            moves.withLock {
+                val reading = _state.value as? ReaderUiState.Reading ?: return@withLock
+                val moved = moveToCard(reading.pageId, reading.cursor, index)
+                _state.update { (it as? ReaderUiState.Reading)?.copy(cursor = moved) ?: it }
+            }
+        }
+    }
+
+    /** Marks the whole page read or unread (F4.6). */
+    fun markPage(isRead: Boolean) {
+        val reading = _state.value as? ReaderUiState.Reading ?: return
+        viewModelScope.launch { setPageRead(reading.pageId, isRead, reading.cursor.cards.map { it.key }) }
     }
 
     fun toggleRead() {

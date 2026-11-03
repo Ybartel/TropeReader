@@ -37,18 +37,24 @@ class RoomReadingProgressRepository @Inject constructor(private val dao: Progres
         dao.observeReadKeys(pageId).map { it.toSet() }.distinctUntilChanged()
 
     override suspend fun setRead(pageId: String, tropeKey: String, isRead: Boolean) {
-        val now = System.currentTimeMillis()
-        dao.upsertReadState(
-            TropeReadStateEntity(
-                id = Ids.readState(pageId, tropeKey),
-                pageId = pageId,
-                tropeKey = tropeKey,
-                isRead = isRead,
-                readAt = if (isRead) now else null,
-                updatedAt = now,
-            ),
-        )
+        dao.upsertReadState(readState(pageId, tropeKey, isRead, System.currentTimeMillis()))
     }
+
+    override suspend fun markAllRead(pageId: String, tropeKeys: Collection<String>) {
+        val now = System.currentTimeMillis()
+        dao.upsertReadStates(tropeKeys.map { readState(pageId, it, true, now) })
+    }
+
+    override suspend fun markAllUnread(pageId: String) = dao.markAllUnread(pageId, System.currentTimeMillis())
+
+    private fun readState(pageId: String, tropeKey: String, isRead: Boolean, now: Long) = TropeReadStateEntity(
+        id = Ids.readState(pageId, tropeKey),
+        pageId = pageId,
+        tropeKey = tropeKey,
+        isRead = isRead,
+        readAt = if (isRead) now else null,
+        updatedAt = now,
+    )
 
     override suspend fun position(pageId: String): String? = dao.position(pageId)
 

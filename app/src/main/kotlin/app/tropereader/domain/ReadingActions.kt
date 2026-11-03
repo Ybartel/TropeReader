@@ -23,3 +23,18 @@ class MoveToCard @Inject constructor(private val progress: ReadingProgressReposi
         return moved
     }
 }
+
+/** Marks a whole page read or unread (F4.6), from the reader or from the work screen. */
+class SetPageRead @Inject constructor(
+    private val loadWorkPage: LoadWorkPage,
+    private val progress: ReadingProgressRepository,
+) {
+    /** @param cardKeys the page's cards when already loaded; otherwise the page is loaded (cache first). */
+    suspend operator fun invoke(pageId: String, isRead: Boolean, cardKeys: List<String>? = null) {
+        if (isRead) {
+            progress.markAllRead(pageId, cardKeys ?: loadWorkPage(pageId).cards.map { it.key })
+        } else {
+            progress.markAllUnread(pageId)
+        }
+    }
+}

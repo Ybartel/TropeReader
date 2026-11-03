@@ -26,6 +26,14 @@ private class InMemoryProgress : ReadingProgressRepository {
         read.value = if (isRead) read.value + tropeKey else read.value - tropeKey
     }
 
+    override suspend fun markAllRead(pageId: String, tropeKeys: Collection<String>) {
+        read.value = read.value + tropeKeys
+    }
+
+    override suspend fun markAllUnread(pageId: String) {
+        read.value = emptySet()
+    }
+
     override suspend fun position(pageId: String): String? = savedPosition
 
     override suspend fun savePosition(pageId: String, tropeKey: String) {
@@ -95,6 +103,17 @@ class ReadingActionsTest {
         val resumed = ReadingCursor.resume(CARDS, progress.position(PAGE), progress.read.value)
         assertEquals(cursor.index, resumed.index)
         assertEquals("c", resumed.current.key)
+    }
+}
+
+class JumpTest {
+    private val progress = InMemoryProgress()
+
+    @Test
+    fun `jumping one card ahead from the list does not mark the current card read`() = runTest {
+        val moved = MoveToCard(progress)(PAGE, ReadingCursor(CARDS, 0), 1)
+        assertEquals(1, moved.index)
+        assertEquals(emptySet(), progress.read.value)
     }
 }
 

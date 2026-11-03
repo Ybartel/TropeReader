@@ -2,7 +2,7 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links and per-spoiler reveal done.
+Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links, per-spoiler reveal, list view and mark page read done.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
 - `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
@@ -21,8 +21,10 @@ Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app li
 - **Links** (F7.1–F7.4): a TvTropes page link opens in the app as a scrolling list of cards, stacked over the reader; Back returns to the same card, not marked read. Its "Add to library" adds the work, or the general trope itself (read like a work, examples grouped by media folder). Links to other sites open in the phone's browser.
 - **Spoilers** (F6.1): each spoiler is a solid block until tapped; revealed ones stay highlighted. Compose's HTML conversion ignores inline styles, so spoilers are marked with private-use characters before conversion and styled afterwards (`ui/common/CardHtml.kt`).
 - The A-to-Z parts' intros (only a navigation bar) are dropped when merging.
+- **List view** (F4.5): reader top bar toggles a list of all cards (folder headers, read checks, spoilers blanked in previews, current card highlighted); tapping one jumps to it without marking anything read.
+- **Mark page read / unread** (F4.6): reader menu, or each page's menu on the work screen, always with confirmation. Unread clears every read state of the page; the position is kept.
 
-Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7), mark a whole page read (F4.6). A Recap page currently reads as its plain index.
+Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
 
 ## Reader (step 2)
 

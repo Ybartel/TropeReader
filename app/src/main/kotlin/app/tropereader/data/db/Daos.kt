@@ -16,6 +16,12 @@ interface ProgressDao {
     @Upsert
     suspend fun upsertReadState(state: TropeReadStateEntity)
 
+    @Upsert
+    suspend fun upsertReadStates(states: List<TropeReadStateEntity>)
+
+    @Query("UPDATE trope_read_state SET isRead = 0, readAt = NULL, updatedAt = :now WHERE pageId = :pageId AND isRead = 1")
+    suspend fun markAllUnread(pageId: String, now: Long)
+
     @Query("SELECT tropeKey FROM reading_position WHERE pageId = :pageId AND deletedAt IS NULL")
     suspend fun position(pageId: String): String?
 
