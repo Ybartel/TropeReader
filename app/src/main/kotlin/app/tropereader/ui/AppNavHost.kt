@@ -14,6 +14,7 @@ import app.tropereader.ui.linked.LinkedPageScreen
 import app.tropereader.ui.linked.LinkedPageViewModel
 import app.tropereader.ui.reader.ReaderScreen
 import app.tropereader.ui.reader.ReaderViewModel
+import app.tropereader.ui.settings.SettingsScreen
 import app.tropereader.ui.work.WorkScreen
 import app.tropereader.ui.work.WorkViewModel
 
@@ -31,8 +32,14 @@ fun AppNavHost(sharedText: String?, onSharedTextConsumed: () -> Unit) {
 
     NavHost(nav, startDestination = LIBRARY) {
         composable(LIBRARY) {
-            LibraryScreen(sharedText = sharedText, onSharedTextConsumed = onSharedTextConsumed, onOpenWork = openWork)
+            LibraryScreen(
+                sharedText = sharedText,
+                onSharedTextConsumed = onSharedTextConsumed,
+                onOpenWork = openWork,
+                onOpenSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } },
+            )
         }
+        composable(SETTINGS) { SettingsScreen(onBack = nav::popBackStack) }
         composable("work/{${WorkViewModel.WORK_ID}}", listOf(navArgument(WorkViewModel.WORK_ID) { type = NavType.StringType })) {
             WorkScreen(onBack = nav::popBackStack, onOpenPage = { nav.navigate("reader/$it") })
         }
@@ -46,3 +53,4 @@ fun AppNavHost(sharedText: String?, onSharedTextConsumed: () -> Unit) {
 }
 
 private const val LIBRARY = "library"
+private const val SETTINGS = "settings"

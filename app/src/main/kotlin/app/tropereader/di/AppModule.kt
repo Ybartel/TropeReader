@@ -3,6 +3,7 @@ package app.tropereader.di
 import android.content.Context
 import androidx.room.Room
 import app.tropereader.data.CachedPageRepository
+import app.tropereader.data.DataStoreSettingsRepository
 import app.tropereader.data.RoomLibraryRepository
 import app.tropereader.data.RoomReadingProgressRepository
 import app.tropereader.data.db.CachedPageDao
@@ -14,6 +15,7 @@ import app.tropereader.data.fetch.WebViewPageFetcher
 import app.tropereader.domain.LibraryRepository
 import app.tropereader.domain.PageRepository
 import app.tropereader.domain.ReadingProgressRepository
+import app.tropereader.domain.SettingsRepository
 import app.tropereader.parser.PageParser
 import app.tropereader.parser.TvTropesPageParser
 import dagger.Binds
@@ -60,4 +62,7 @@ abstract class BindingsModule {
 
     @Binds
     abstract fun fetcher(impl: WebViewPageFetcher): PageFetcher
+
+    @Binds
+    abstract fun settings(impl: DataStoreSettingsRepository): SettingsRepository
 }

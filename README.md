@@ -2,7 +2,7 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links, per-spoiler reveal, list view and mark page read done.
+Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links, per-spoiler reveal, list view, mark page read and settings done; history left.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
 - `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
@@ -22,6 +22,7 @@ Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app li
 - **Spoilers** (F6.1): each spoiler is a solid block until tapped; revealed ones stay highlighted. Compose's HTML conversion ignores inline styles, so spoilers are marked with private-use characters before conversion and styled afterwards (`ui/common/CardHtml.kt`).
 - The A-to-Z parts' intros (only a navigation bar) are dropped when merging.
 - **List view** (F4.5): reader top bar toggles a list of all cards (folder headers, read checks, spoilers blanked in previews, current card highlighted); tapping one jumps to it without marking anything read.
+- **Settings** (gear in the library): spoilers hidden until tapped or always shown (F6.2), text size 85–150% on top of the system font scale, theme (system / light / dark), version number (F11.1). Stored with DataStore: device preferences, not part of the synced user state.
 - **Mark page read / unread** (F4.6): reader menu, or each page's menu on the work screen, always with confirmation. Unread clears every read state of the page; the position is kept.
 
 Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
