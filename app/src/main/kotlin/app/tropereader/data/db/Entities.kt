@@ -72,3 +72,15 @@ data class PageSummaryEntity(
     val cardCount: Int,
     val updatedAt: Long,
 )
+
+/** A card view (F8). Append-only, so random ids are safe for a future sync. */
+@Entity(tableName = "history_entry", indices = [Index("viewedAt")])
+data class HistoryEntryEntity(
+    @PrimaryKey val id: String,
+    val pageId: String,
+    val tropeKey: String,
+    val label: String,
+    val viewedAt: Long,
+    val updatedAt: Long,
+    val deletedAt: Long? = null,
+)

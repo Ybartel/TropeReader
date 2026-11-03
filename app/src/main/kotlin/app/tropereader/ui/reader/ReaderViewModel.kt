@@ -9,6 +9,7 @@ import app.tropereader.domain.MoveToCard
 import app.tropereader.domain.PageLoadException
 import app.tropereader.domain.ReadingCursor
 import app.tropereader.domain.ReadingProgressRepository
+import app.tropereader.domain.RecordCardView
 import app.tropereader.domain.SetPageRead
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
@@ -44,8 +45,12 @@ class ReaderViewModel @Inject constructor(
     private val advanceToNextCard: AdvanceToNextCard,
     private val moveToCard: MoveToCard,
     private val setPageRead: SetPageRead,
+    private val recordCardView: RecordCardView,
 ) : ViewModel() {
     private val pageId: String = checkNotNull(savedStateHandle[PAGE_ID])
+
+    /** Card to open on instead of the saved position, when coming from history (F8.2). */
+    private var requestedCard: String? = savedStateHandle[CARD_KEY]
     private val _state = MutableStateFlow<ReaderUiState>(ReaderUiState.Loading())
     val state: StateFlow<ReaderUiState> = _state.asStateFlow()
 
@@ -63,8 +68,13 @@ class ReaderViewModel @Inject constructor(
             try {
                 val page = loadWorkPage(pageId) { part, parts -> _state.value = ReaderUiState.Loading(part, parts) }
                 val readKeys = progress.observeReadKeys(pageId).first()
-                val cursor = ReadingCursor.resume(page.cards, progress.position(pageId), readKeys)
+                var cursor = ReadingCursor.resume(page.cards, progress.position(pageId), readKeys)
+                requestedCard?.let { key ->
+                    page.cards.indexOfFirst { it.key == key }.takeIf { it >= 0 }?.let { cursor = moveToCard(pageId, cursor, it) }
+                    requestedCard = null
+                }
                 _state.value = ReaderUiState.Reading(page.title, pageId, cursor, readKeys)
+                recordCardView(pageId, cursor.current)
                 observeReadKeys(pageId)
             } catch (e: PageLoadException) {
                 _state.value = ReaderUiState.Error(e.message ?: "Could not load the page.")
@@ -84,6 +94,7 @@ class ReaderViewModel @Inject constructor(
                     else -> moveToCard(reading.pageId, cursor, index)
                 }
                 _state.update { (it as? ReaderUiState.Reading)?.copy(cursor = moved) ?: it }
+                recordCardView(reading.pageId, moved.current)
             }
         }
     }
@@ -95,6 +106,7 @@ class ReaderViewModel @Inject constructor(
                 val reading = _state.value as? ReaderUiState.Reading ?: return@withLock
                 val moved = moveToCard(reading.pageId, reading.cursor, index)
                 _state.update { (it as? ReaderUiState.Reading)?.copy(cursor = moved) ?: it }
+                recordCardView(reading.pageId, moved.current)
             }
         }
     }
@@ -122,5 +134,6 @@ class ReaderViewModel @Inject constructor(
 
     companion object {
         const val PAGE_ID = "pageId"
+        const val CARD_KEY = "card"
     }
 }

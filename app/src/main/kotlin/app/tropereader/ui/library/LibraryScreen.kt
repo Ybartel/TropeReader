@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
+import androidx.compose.material.icons.filled.History
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material.icons.filled.Settings
 import androidx.compose.material3.AlertDialog
@@ -59,6 +60,7 @@ fun LibraryScreen(
     onSharedTextConsumed: () -> Unit,
     onOpenWork: (String) -> Unit,
     onOpenSettings: () -> Unit,
+    onOpenHistory: () -> Unit,
     viewModel: LibraryViewModel = hiltViewModel(),
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
@@ -90,6 +92,7 @@ fun LibraryScreen(
                     TextButton(onClick = {
                         viewModel.setSort(if (state.sort == LibrarySort.RECENT) LibrarySort.TITLE else LibrarySort.RECENT)
                     }) { Text(if (state.sort == LibrarySort.RECENT) "Sort: recent" else "Sort: title") }
+                    IconButton(onClick = onOpenHistory) { Icon(Icons.Filled.History, contentDescription = "History") }
                     IconButton(onClick = onOpenSettings) { Icon(Icons.Filled.Settings, contentDescription = "Settings") }
                 },
             )

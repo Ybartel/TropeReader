@@ -46,6 +46,28 @@ class MigrationTest {
         }
     }
 
+    @Test
+    fun migrate2To3AddsEmptyHistory() {
+        helper.createDatabase(DB, 2).close()
+        helper.runMigrationsAndValidate(DB, 3, true).query("SELECT COUNT(*) FROM history_entry").use {
+            it.moveToFirst()
+            assertEquals(0, it.getInt(0))
+        }
+    }
+
+    /** A phone that skipped versions: v1 straight to the latest schema. */
+    @Test
+    fun migrate1To3KeepsProgress() {
+        helper.createDatabase(DB, 1).apply {
+            execSQL("INSERT INTO trope_read_state VALUES ('r', 'p', 'Main/AbandonedArea', 1, 2, 2, NULL)")
+            close()
+        }
+        helper.runMigrationsAndValidate(DB, 3, true).query("SELECT tropeKey FROM trope_read_state").use {
+            it.moveToFirst()
+            assertEquals("Main/AbandonedArea", it.getString(0))
+        }
+    }
+
     private companion object {
         const val DB = "migration-test"
     }

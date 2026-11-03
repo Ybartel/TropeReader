@@ -9,6 +9,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import app.tropereader.domain.TvTropesUrls
+import app.tropereader.ui.history.HistoryScreen
 import app.tropereader.ui.library.LibraryScreen
 import app.tropereader.ui.linked.LinkedPageScreen
 import app.tropereader.ui.linked.LinkedPageViewModel
@@ -37,13 +38,29 @@ fun AppNavHost(sharedText: String?, onSharedTextConsumed: () -> Unit) {
                 onSharedTextConsumed = onSharedTextConsumed,
                 onOpenWork = openWork,
                 onOpenSettings = { nav.navigate(SETTINGS) { launchSingleTop = true } },
+                onOpenHistory = { nav.navigate(HISTORY) { launchSingleTop = true } },
+            )
+        }
+        composable(HISTORY) {
+            HistoryScreen(
+                onBack = nav::popBackStack,
+                onOpenCard = { pageId, card -> nav.navigate("reader/$pageId?${ReaderViewModel.CARD_KEY}=${Uri.encode(card)}") },
             )
         }
         composable(SETTINGS) { SettingsScreen(onBack = nav::popBackStack) }
         composable("work/{${WorkViewModel.WORK_ID}}", listOf(navArgument(WorkViewModel.WORK_ID) { type = NavType.StringType })) {
             WorkScreen(onBack = nav::popBackStack, onOpenPage = { nav.navigate("reader/$it") })
         }
-        composable("reader/{${ReaderViewModel.PAGE_ID}}", listOf(navArgument(ReaderViewModel.PAGE_ID) { type = NavType.StringType })) {
+        composable(
+            "reader/{${ReaderViewModel.PAGE_ID}}?${ReaderViewModel.CARD_KEY}={${ReaderViewModel.CARD_KEY}}",
+            listOf(
+                navArgument(ReaderViewModel.PAGE_ID) { type = NavType.StringType },
+                navArgument(ReaderViewModel.CARD_KEY) {
+                    type = NavType.StringType
+                    nullable = true
+                },
+            ),
+        ) {
             ReaderScreen(onBack = nav::popBackStack, onLink = openLink)
         }
         composable("linked/{${LinkedPageViewModel.URL}}", listOf(navArgument(LinkedPageViewModel.URL) { type = NavType.StringType })) {
@@ -54,3 +71,4 @@ fun AppNavHost(sharedText: String?, onSharedTextConsumed: () -> Unit) {
 
 private const val LIBRARY = "library"
 private const val SETTINGS = "settings"
+private const val HISTORY = "history"

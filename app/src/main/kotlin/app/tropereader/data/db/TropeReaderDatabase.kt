@@ -16,12 +16,15 @@ import androidx.room.RoomDatabase
         ReadingPositionEntity::class,
         CachedPageEntity::class,
         PageSummaryEntity::class,
+        HistoryEntryEntity::class,
     ],
-    version = 2,
+    version = 3,
     exportSchema = true,
     autoMigrations = [
         // v2: page_summary (step 3).
         AutoMigration(from = 1, to = 2),
+        // v3: history_entry (step 4).
+        AutoMigration(from = 2, to = 3),
     ],
 )
 abstract class TropeReaderDatabase : RoomDatabase() {
@@ -30,6 +33,8 @@ abstract class TropeReaderDatabase : RoomDatabase() {
     abstract fun libraryDao(): LibraryDao
 
     abstract fun cachedPageDao(): CachedPageDao
+
+    abstract fun historyDao(): HistoryDao
 
     companion object {
         const val NAME = "tropereader.db"

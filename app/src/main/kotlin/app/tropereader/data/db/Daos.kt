@@ -117,3 +117,34 @@ interface CachedPageDao {
     @Upsert
     suspend fun put(page: CachedPageEntity)
 }
+
+data class HistoryRow(
+    @Embedded val entry: HistoryEntryEntity,
+    val workTitle: String,
+    val pageRole: String,
+)
+
+@Dao
+interface HistoryDao {
+    @Query(
+        """
+        SELECT h.*, w.title AS workTitle, p.role AS pageRole
+        FROM history_entry h
+          JOIN work_page p ON p.id = h.pageId
+          JOIN work w ON w.id = p.workId
+        WHERE h.deletedAt IS NULL AND w.deletedAt IS NULL
+        ORDER BY h.viewedAt DESC
+        LIMIT :limit
+        """,
+    )
+    fun observe(limit: Int): Flow<List<HistoryRow>>
+
+    @Query("SELECT * FROM history_entry WHERE deletedAt IS NULL ORDER BY viewedAt DESC LIMIT 1")
+    suspend fun latest(): HistoryEntryEntity?
+
+    @Insert
+    suspend fun insert(entry: HistoryEntryEntity)
+
+    @Query("UPDATE history_entry SET deletedAt = :now, updatedAt = :now WHERE deletedAt IS NULL")
+    suspend fun clear(now: Long)
+}
