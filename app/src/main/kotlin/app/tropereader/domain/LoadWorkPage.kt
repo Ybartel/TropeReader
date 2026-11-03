@@ -1,6 +1,7 @@
 package app.tropereader.domain
 
 import app.tropereader.parser.Card
+import app.tropereader.parser.CardKind
 import app.tropereader.parser.ParsedPage
 import javax.inject.Inject
 
@@ -28,11 +29,14 @@ class LoadWorkPage @Inject constructor(
     }
 
     companion object {
-        /** Concatenates the sources' cards; a key already used by an earlier source gets `@<path>`. */
+        /**
+         * Concatenates the sources' cards; a key already used by an earlier source gets `@<path>`.
+         * The intro of each later part is dropped: on an A-to-Z subpage it is only the navigation bar.
+         */
         fun mergeCards(parsed: List<ParsedPage>): List<Card> {
             val seen = mutableSetOf<String>()
-            return parsed.flatMap { source ->
-                source.cards.map { card ->
+            return parsed.flatMapIndexed { i, source ->
+                source.cards.filterNot { i > 0 && it.kind == CardKind.INTRO }.map { card ->
                     if (seen.add(card.key)) {
                         card
                     } else {

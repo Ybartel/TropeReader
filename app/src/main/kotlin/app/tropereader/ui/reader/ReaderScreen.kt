@@ -1,6 +1,5 @@
 package app.tropereader.ui.reader
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -27,29 +26,24 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.tropereader.parser.Card
-import app.tropereader.parser.CardKind
 import app.tropereader.ui.common.BackButton
+import app.tropereader.ui.common.CardContent
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReaderScreen(onBack: () -> Unit, viewModel: ReaderViewModel = hiltViewModel()) {
+fun ReaderScreen(onBack: () -> Unit, onLink: (String) -> Unit, viewModel: ReaderViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     Scaffold(
         topBar = {
@@ -63,7 +57,7 @@ fun ReaderScreen(onBack: () -> Unit, viewModel: ReaderViewModel = hiltViewModel(
             when (val s = state) {
                 is ReaderUiState.Loading -> LoadingView(s.part, s.parts)
                 is ReaderUiState.Error -> ErrorView(s.message, onRetry = viewModel::load)
-                is ReaderUiState.Reading -> ReaderContent(s, onCardSettled = viewModel::onCardSettled, onToggleRead = viewModel::toggleRead)
+                is ReaderUiState.Reading -> ReaderContent(s, onCardSettled = viewModel::onCardSettled, onToggleRead = viewModel::toggleRead, onLink = onLink)
             }
         }
     }
@@ -92,7 +86,12 @@ private fun ErrorView(message: String, onRetry: () -> Unit) {
 }
 
 @Composable
-private fun ReaderContent(state: ReaderUiState.Reading, onCardSettled: (Int) -> Unit, onToggleRead: () -> Unit) {
+private fun ReaderContent(
+    state: ReaderUiState.Reading,
+    onCardSettled: (Int) -> Unit,
+    onToggleRead: () -> Unit,
+    onLink: (String) -> Unit,
+) {
     val cards = state.cursor.cards
     val pagerState = rememberPagerState(initialPage = state.cursor.index) { cards.size }
     val scope = rememberCoroutineScope()
@@ -123,7 +122,7 @@ private fun ReaderContent(state: ReaderUiState.Reading, onCardSettled: (Int) -> 
             )
         }
         HorizontalPager(pagerState, Modifier.weight(1f), beyondViewportPageCount = 1, key = { cards[it].key }) { page ->
-            CardView(cards[page])
+            CardView(cards[page], onLink)
         }
         Row(
             Modifier.fillMaxWidth().padding(16.dp),
@@ -148,38 +147,12 @@ private fun ReaderContent(state: ReaderUiState.Reading, onCardSettled: (Int) -> 
 }
 
 @Composable
-private fun CardView(card: Card) {
-    var revealSpoilers by rememberSaveable(card.key) { mutableStateOf(false) }
-    val spoilers = remember(card.key) { hasSpoilers(card.bodyHtml) || card.leadHtml?.let(::hasSpoilers) == true }
+private fun CardView(card: Card, onLink: (String) -> Unit) {
     Surface(
         Modifier.fillMaxSize().padding(horizontal = 16.dp),
         tonalElevation = 1.dp,
         shape = MaterialTheme.shapes.large,
     ) {
-        Column(
-            Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp)
-                .clickable(enabled = spoilers) { revealSpoilers = !revealSpoilers },
-        ) {
-            if (card.kind == CardKind.EXAMPLE) {
-                card.title?.let { Text(it, style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold) }
-                card.leadHtml?.let {
-                    Spacer(Modifier.height(4.dp))
-                    Text(cardHtml(it, revealSpoilers), style = MaterialTheme.typography.bodyMedium, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                }
-                Spacer(Modifier.height(16.dp))
-            } else if (card.kind == CardKind.INTRO) {
-                Text("Introduction", style = MaterialTheme.typography.titleLarge, fontWeight = FontWeight.SemiBold)
-                Spacer(Modifier.height(12.dp))
-            }
-            Text(cardHtml(card.bodyHtml, revealSpoilers), style = MaterialTheme.typography.bodyLarge)
-            if (spoilers) {
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    if (revealSpoilers) "Tap to hide spoilers" else "Tap to reveal spoilers",
-                    style = MaterialTheme.typography.labelMedium,
-                    color = MaterialTheme.colorScheme.primary,
-                )
-            }
-        }
+        CardContent(card, onLink, Modifier.fillMaxSize().verticalScroll(rememberScrollState()).padding(20.dp))
     }
 }

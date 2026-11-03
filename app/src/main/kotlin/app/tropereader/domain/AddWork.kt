@@ -14,6 +14,9 @@ object TvTropesUrls {
     fun extract(text: String): String? =
         PAGE.find(text)?.let { "https://tvtropes.org/pmwiki/pmwiki.php/${it.groupValues[1]}/${it.groupValues[2]}" }
 
+    /** Normalized URL when [url] itself is a wiki page link (opened in the app), null for anything else (F7.1, F7.4). */
+    fun wikiPage(url: String): String? = PAGE.find(url)?.takeIf { it.range.first == 0 }?.let { extract(it.value) }
+
     /** Wiki path (`Series/BreakingBad`) of a page link. */
     fun path(text: String): String? = PAGE.find(text)?.let { "${it.groupValues[1]}/${it.groupValues[2]}" }
 }

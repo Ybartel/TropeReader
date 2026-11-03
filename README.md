@@ -2,7 +2,7 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **step 3 (library and pages) done**.
+Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links and per-spoiler reveal done.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
 - `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
@@ -15,6 +15,12 @@ Roadmap status: **step 3 (library and pages) done**.
 - **Merged tropes** (F2.5): a work's tropes page is one logical page made of the main page plus its A-to-Z subpages, loaded one per second with progress shown. Breaking Bad: 6 parts, 1,402 cards.
 - **Subpages** come from the site's subpage bar (Characters, YMMV, Trivia, Funny…), in its order.
 - **Schema v2** adds `page_summary` (card count per page) through an auto-migration, tested by `MigrationTest` (`./gradlew :app:connectedDebugAndroidTest`, needs a device or emulator).
+
+## Links and spoilers (step 4, part 1)
+
+- **Links** (F7.1–F7.4): a TvTropes page link opens in the app as a scrolling list of cards, stacked over the reader; Back returns to the same card, not marked read. Its "Add to library" adds the work, or the general trope itself (read like a work, examples grouped by media folder). Links to other sites open in the phone's browser.
+- **Spoilers** (F6.1): each spoiler is a solid block until tapped; revealed ones stay highlighted. Compose's HTML conversion ignores inline styles, so spoilers are marked with private-use characters before conversion and styled afterwards (`ui/common/CardHtml.kt`).
+- The A-to-Z parts' intros (only a navigation bar) are dropped when merging.
 
 Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7), mark a whole page read (F4.6). A Recap page currently reads as its plain index.
 

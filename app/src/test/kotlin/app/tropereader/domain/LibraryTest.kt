@@ -17,7 +17,8 @@ private const val BASE = "https://tvtropes.org/pmwiki/pmwiki.php/"
 
 private fun link(label: String, path: String) = PageLink(label, path, BASE + path)
 
-private fun card(key: String) = Card(key, key, 0, CardKind.ENTRY, null, null, null, key, null, null, emptyList())
+private fun card(key: String) =
+    Card(key, key, 0, if (key == "intro") CardKind.INTRO else CardKind.ENTRY, null, null, null, key, null, null, emptyList())
 
 private fun page(
     path: String,
@@ -58,6 +59,13 @@ class TvTropesUrlsTest {
         assertEquals("Series/BreakingBad", TvTropesUrls.path("tvtropes.org/pmwiki/pmwiki.php/Series/BreakingBad"))
         assertNull(TvTropesUrls.extract("https://example.com/Series/BreakingBad"))
     }
+
+    @Test
+    fun `only wiki page links open in the app`() {
+        assertEquals(BASE + "Main/AbortedArc", TvTropesUrls.wikiPage("https://tvtropes.org/pmwiki/pmwiki.php/Main/AbortedArc"))
+        assertNull(TvTropesUrls.wikiPage("https://tvtropes.org/pmwiki/posts.php?discussion=1"))
+        assertNull(TvTropesUrls.wikiPage("https://en.wikipedia.org/wiki/X?u=tvtropes.org/pmwiki/pmwiki.php/Main/A"))
+    }
 }
 
 class WorkPlannerTest {
@@ -80,14 +88,14 @@ class WorkPlannerTest {
 
 class MergeCardsTest {
     @Test
-    fun `parts are concatenated and repeated keys get the source path`() {
+    fun `parts are concatenated, later intros dropped, repeated keys get the source path`() {
         val merged = LoadWorkPage.mergeCards(
             listOf(
                 page("Series/BreakingBad", cards = listOf("intro", "x:quote")),
-                page("BreakingBad/TropesAToB", cards = listOf("intro", "Main/AbortedArc")),
+                page("BreakingBad/TropesAToB", cards = listOf("intro", "Main/AbortedArc", "x:quote")),
             ),
         )
-        assertEquals(listOf("intro", "x:quote", "intro@BreakingBad/TropesAToB", "Main/AbortedArc"), merged.map { it.key })
+        assertEquals(listOf("intro", "x:quote", "Main/AbortedArc", "x:quote@BreakingBad/TropesAToB"), merged.map { it.key })
         assertEquals(listOf(0, 1, 2, 3), merged.map { it.position })
     }
 }
