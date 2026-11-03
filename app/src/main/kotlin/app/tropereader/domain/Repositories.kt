@@ -20,10 +20,28 @@ interface PageRepository {
     suspend fun load(url: String): ParsedPage
 }
 
-/** Works and their pages. */
+/** Works, their pages and aggregated progress. */
 interface LibraryRepository {
-    /** Makes sure [page] is in the library as a one-page work; returns its page id. */
-    suspend fun ensureSinglePageWork(requestedUrl: String, page: ParsedPage): String
+    fun observeWorks(): Flow<List<WorkSummary>>
+
+    fun observeWork(workId: String): Flow<Work?>
+
+    fun observePages(workId: String): Flow<List<WorkPageState>>
+
+    /** Id of a work in the library (not deleted) known under [url], current or former. */
+    suspend fun findWorkByUrl(url: String): String?
+
+    /** Adds the work, or restores and completes it if it already exists; returns its id. */
+    suspend fun saveWork(work: NewWork): String
+
+    /** Soft delete: progress is kept, so adding the work again brings it back. */
+    suspend fun deleteWork(workId: String)
+
+    suspend fun page(pageId: String): WorkPage?
+
+    suspend fun work(workId: String): Work?
+
+    suspend fun recordCardCount(pageId: String, cardCount: Int)
 }
 
 class PageLoadException(message: String, cause: Throwable? = null) : Exception(message, cause)

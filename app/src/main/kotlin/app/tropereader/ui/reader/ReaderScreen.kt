@@ -44,22 +44,24 @@ import androidx.hilt.lifecycle.viewmodel.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import app.tropereader.parser.Card
 import app.tropereader.parser.CardKind
+import app.tropereader.ui.common.BackButton
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun ReaderScreen(viewModel: ReaderViewModel = hiltViewModel()) {
+fun ReaderScreen(onBack: () -> Unit, viewModel: ReaderViewModel = hiltViewModel()) {
     val state by viewModel.state.collectAsStateWithLifecycle()
     Scaffold(
         topBar = {
-            TopAppBar(title = {
-                Text((state as? ReaderUiState.Reading)?.title ?: "TropeReader", maxLines = 1, overflow = TextOverflow.Ellipsis)
-            })
+            TopAppBar(
+                title = { Text((state as? ReaderUiState.Reading)?.title.orEmpty(), maxLines = 1, overflow = TextOverflow.Ellipsis) },
+                navigationIcon = { BackButton(onBack) },
+            )
         },
     ) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
             when (val s = state) {
-                ReaderUiState.Loading -> LoadingView()
+                is ReaderUiState.Loading -> LoadingView(s.part, s.parts)
                 is ReaderUiState.Error -> ErrorView(s.message, onRetry = viewModel::load)
                 is ReaderUiState.Reading -> ReaderContent(s, onCardSettled = viewModel::onCardSettled, onToggleRead = viewModel::toggleRead)
             }
@@ -68,11 +70,11 @@ fun ReaderScreen(viewModel: ReaderViewModel = hiltViewModel()) {
 }
 
 @Composable
-private fun LoadingView() {
+private fun LoadingView(part: Int, parts: Int) {
     Column(Modifier.fillMaxSize(), verticalArrangement = Arrangement.Center, horizontalAlignment = Alignment.CenterHorizontally) {
         CircularProgressIndicator()
         Spacer(Modifier.height(16.dp))
-        Text("Loading page…", style = MaterialTheme.typography.bodyMedium)
+        Text(if (parts > 1) "Loading part $part of $parts…" else "Loading page…", style = MaterialTheme.typography.bodyMedium)
     }
 }
 

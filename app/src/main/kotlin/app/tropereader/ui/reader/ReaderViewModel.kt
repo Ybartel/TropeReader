@@ -1,12 +1,12 @@
 package app.tropereader.ui.reader
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import app.tropereader.domain.AdvanceToNextCard
-import app.tropereader.domain.LibraryRepository
+import app.tropereader.domain.LoadWorkPage
 import app.tropereader.domain.MoveToCard
 import app.tropereader.domain.PageLoadException
-import app.tropereader.domain.PageRepository
 import app.tropereader.domain.ReadingCursor
 import app.tropereader.domain.ReadingProgressRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -22,7 +22,8 @@ import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
 
 sealed interface ReaderUiState {
-    data object Loading : ReaderUiState
+    /** [part] / [parts]: progress while the sources of a merged page load one per second. */
+    data class Loading(val part: Int = 0, val parts: Int = 0) : ReaderUiState
 
     data class Error(val message: String) : ReaderUiState
 
@@ -36,13 +37,14 @@ sealed interface ReaderUiState {
 
 @HiltViewModel
 class ReaderViewModel @Inject constructor(
-    private val pages: PageRepository,
-    private val library: LibraryRepository,
+    savedStateHandle: SavedStateHandle,
+    private val loadWorkPage: LoadWorkPage,
     private val progress: ReadingProgressRepository,
     private val advanceToNextCard: AdvanceToNextCard,
     private val moveToCard: MoveToCard,
 ) : ViewModel() {
-    private val _state = MutableStateFlow<ReaderUiState>(ReaderUiState.Loading)
+    private val pageId: String = checkNotNull(savedStateHandle[PAGE_ID])
+    private val _state = MutableStateFlow<ReaderUiState>(ReaderUiState.Loading())
     val state: StateFlow<ReaderUiState> = _state.asStateFlow()
 
     /** Moves are applied one at a time, in order, so a fast double swipe cannot skip a save. */
@@ -55,11 +57,9 @@ class ReaderViewModel @Inject constructor(
 
     fun load() {
         viewModelScope.launch {
-            _state.value = ReaderUiState.Loading
+            _state.value = ReaderUiState.Loading()
             try {
-                val page = pages.load(DEMO_URL)
-                if (page.cards.isEmpty()) throw PageLoadException("This page has no cards.")
-                val pageId = library.ensureSinglePageWork(DEMO_URL, page)
+                val page = loadWorkPage(pageId) { part, parts -> _state.value = ReaderUiState.Loading(part, parts) }
                 val readKeys = progress.observeReadKeys(pageId).first()
                 val cursor = ReadingCursor.resume(page.cards, progress.position(pageId), readKeys)
                 _state.value = ReaderUiState.Reading(page.title, pageId, cursor, readKeys)
@@ -101,8 +101,7 @@ class ReaderViewModel @Inject constructor(
         }
     }
 
-    private companion object {
-        /** Step 2 of the roadmap reads one hard-coded page; the library comes in step 3. */
-        const val DEMO_URL = "https://tvtropes.org/pmwiki/pmwiki.php/VideoGame/Portal2"
+    companion object {
+        const val PAGE_ID = "pageId"
     }
 }

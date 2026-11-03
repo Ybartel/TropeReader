@@ -2,12 +2,23 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **step 2 (minimal reader) done**.
+Roadmap status: **step 3 (library and pages) done**.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
-- `app/`: Android app (Compose, Room, Hilt). For now it reads one hard-coded page (`VideoGame/Portal2`) card by card, saves progress in Room and resumes on reopen.
+- `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
 
-## App (step 2)
+## Library and pages (step 3)
+
+- **Add a work** (F1.1) by pasting its link, or with Android "Share" from the browser (any text containing a TvTropes link). A link to a subpage (YMMV, Characters…) adds its work; a link to a work already in the library opens it.
+- **Library** (F1.3–F1.4): title, media type, progress, last read; sort by recent or title; remove with confirmation. Removal is a soft delete: adding the work again restores its progress. Card totals are only known for pages opened at least once, so progress reads "of opened pages" until then.
+- **Work screen** (F2.1–F2.3): the work's pages with their state (not started / in progress x/y / done) and a Resume button (most recently read page).
+- **Merged tropes** (F2.5): a work's tropes page is one logical page made of the main page plus its A-to-Z subpages, loaded one per second with progress shown. Breaking Bad: 6 parts, 1,402 cards.
+- **Subpages** come from the site's subpage bar (Characters, YMMV, Trivia, Funny…), in its order.
+- **Schema v2** adds `page_summary` (card count per page) through an auto-migration, tested by `MigrationTest` (`./gradlew :app:connectedDebugAndroidTest`, needs a device or emulator).
+
+Not done yet: hiding / reordering pages (F2.4), Recap index read as a group of episodes (F3.7), mark a whole page read (F4.6). A Recap page currently reads as its plain index.
+
+## Reader (step 2)
 
 ```bash
 ./gradlew :app:testDebugUnitTest :app:assembleDebug

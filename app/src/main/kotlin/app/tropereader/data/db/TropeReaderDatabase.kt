@@ -1,5 +1,6 @@
 package app.tropereader.data.db
 
+import androidx.room.AutoMigration
 import androidx.room.Database
 import androidx.room.RoomDatabase
 
@@ -14,9 +15,14 @@ import androidx.room.RoomDatabase
         TropeReadStateEntity::class,
         ReadingPositionEntity::class,
         CachedPageEntity::class,
+        PageSummaryEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
+    autoMigrations = [
+        // v2: page_summary (step 3).
+        AutoMigration(from = 1, to = 2),
+    ],
 )
 abstract class TropeReaderDatabase : RoomDatabase() {
     abstract fun progressDao(): ProgressDao

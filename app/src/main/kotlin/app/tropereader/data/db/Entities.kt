@@ -64,3 +64,11 @@ data class CachedPageEntity(
     val rawHtml: String,
     val fetchedAt: Long,
 )
+
+/** Card count of a logical page, known once it has been opened; drives "x / y" progress (F1.3, F2.2). */
+@Entity(tableName = "page_summary")
+data class PageSummaryEntity(
+    @PrimaryKey val pageId: String,
+    val cardCount: Int,
+    val updatedAt: Long,
+)
