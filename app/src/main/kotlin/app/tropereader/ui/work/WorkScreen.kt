@@ -3,6 +3,8 @@ package app.tropereader.ui.work
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
+import androidx.compose.material.icons.filled.KeyboardArrowDown
+import androidx.compose.material.icons.filled.KeyboardArrowUp
 import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -12,6 +14,7 @@ import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import app.tropereader.domain.PageLoadException
@@ -27,9 +30,11 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.CheckCircle
 import androidx.compose.material3.Button
+import androidx.compose.material3.Checkbox
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -37,6 +42,7 @@ import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -66,7 +72,7 @@ data class WorkUiState(val work: Work? = null, val pages: List<WorkPageState> = 
 @HiltViewModel
 class WorkViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle,
-    library: LibraryRepository,
+    private val library: LibraryRepository,
     private val setPageRead: SetPageRead,
 ) : ViewModel() {
     private val workId: String = checkNotNull(savedStateHandle[WORK_ID])
@@ -87,6 +93,15 @@ class WorkViewModel @Inject constructor(
         }
     }
 
+    fun setHidden(pageId: String, hidden: Boolean) {
+        viewModelScope.launch { library.setPageHidden(pageId, hidden) }
+    }
+
+    /** Moves a page one step up ([delta] -1) or down (+1) (F2.4). */
+    fun move(pageId: String, delta: Int) {
+        viewModelScope.launch { library.reorderPages(WorkPageState.moved(state.value.pages, pageId, delta)) }
+    }
+
     companion object {
         const val WORK_ID = "workId"
     }
@@ -98,6 +113,7 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
     val state by viewModel.state.collectAsStateWithLifecycle()
     val snackbar = remember { SnackbarHostState() }
     var confirm by remember { mutableStateOf<Pair<String, Boolean>?>(null) }
+    var editing by rememberSaveable { mutableStateOf(false) }
     LaunchedEffect(viewModel) { viewModel.messages.collect { snackbar.showSnackbar(it) } }
     Scaffold(
         snackbarHost = { SnackbarHost(snackbar) },
@@ -105,9 +121,16 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
             TopAppBar(
                 title = { Text(state.work?.title.orEmpty(), maxLines = 1, overflow = TextOverflow.Ellipsis) },
                 navigationIcon = { BackButton(onBack) },
+                actions = { TextButton(onClick = { editing = !editing }) { Text(if (editing) "Done" else "Edit") } },
             )
         },
     ) { padding ->
+        if (editing) {
+            EditPages(state.pages, Modifier.padding(padding), onHidden = viewModel::setHidden, onMove = viewModel::move)
+            return@Scaffold
+        }
+        val visible = state.pages.filterNot { it.page.isHidden }
+        val hiddenCount = state.pages.size - visible.size
         Column(Modifier.padding(padding).fillMaxSize()) {
             WorkPageState.resumeTarget(state.pages)?.let { target ->
                 Button(onClick = { onOpenPage(target.page.id) }, modifier = Modifier.fillMaxWidth().padding(16.dp)) {
@@ -115,7 +138,7 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
                 }
             }
             LazyColumn {
-                items(state.pages, key = { it.page.id }) { page ->
+                items(visible, key = { it.page.id }) { page ->
                     ListItem(
                         modifier = Modifier.clickable { onOpenPage(page.page.id) },
                         headlineContent = { Text(label(page)) },
@@ -131,6 +154,13 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
                     )
                     HorizontalDivider()
                 }
+                if (hiddenCount > 0) {
+                    item(key = "hidden") {
+                        TextButton(onClick = { editing = true }, modifier = Modifier.padding(8.dp)) {
+                            Text(if (hiddenCount == 1) "1 hidden page" else "$hiddenCount hidden pages")
+                        }
+                    }
+                }
             }
         }
     }
@@ -143,6 +173,46 @@ fun WorkScreen(onBack: () -> Unit, onOpenPage: (String) -> Unit, viewModel: Work
             },
             onDismiss = { confirm = null },
         )
+    }
+}
+
+/** F2.4: check the pages to show, move them with the arrows. Changes apply at once. */
+@Composable
+private fun EditPages(
+    pages: List<WorkPageState>,
+    modifier: Modifier,
+    onHidden: (String, Boolean) -> Unit,
+    onMove: (String, Int) -> Unit,
+) {
+    LazyColumn(modifier.fillMaxSize()) {
+        item(key = "help") {
+            Text(
+                "Uncheck the pages you don't want to see. Hidden pages don't count in the work's progress.",
+                Modifier.padding(16.dp),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+        itemsIndexed(pages, key = { _, it -> it.page.id }) { index, page ->
+            ListItem(
+                modifier = Modifier.animateItem(),
+                leadingContent = {
+                    Checkbox(checked = !page.page.isHidden, onCheckedChange = { shown -> onHidden(page.page.id, !shown) })
+                },
+                headlineContent = { Text(label(page)) },
+                trailingContent = {
+                    Row {
+                        IconButton(onClick = { onMove(page.page.id, -1) }, enabled = index > 0) {
+                            Icon(Icons.Filled.KeyboardArrowUp, contentDescription = "Move ${label(page)} up")
+                        }
+                        IconButton(onClick = { onMove(page.page.id, 1) }, enabled = index < pages.lastIndex) {
+                            Icon(Icons.Filled.KeyboardArrowDown, contentDescription = "Move ${label(page)} down")
+                        }
+                    }
+                },
+            )
+            HorizontalDivider()
+        }
     }
 }
 

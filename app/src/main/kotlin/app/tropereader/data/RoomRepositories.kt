@@ -130,7 +130,11 @@ class RoomLibraryRepository @Inject constructor(private val dao: LibraryDao) : L
 
     private fun WorkEntity.toDomain() = Work(id, title, mediaType, canonicalUrl)
 
-    private fun WorkPageEntity.toDomain() = WorkPage(id, workId, role, sourceUrls.lines().filter { it.isNotBlank() })
+    override suspend fun setPageHidden(pageId: String, hidden: Boolean) = dao.setPageHidden(pageId, hidden, System.currentTimeMillis())
+
+    override suspend fun reorderPages(orderedPageIds: List<String>) = dao.reorderPages(orderedPageIds, System.currentTimeMillis())
+
+    private fun WorkPageEntity.toDomain() = WorkPage(id, workId, role, sourceUrls.lines().filter { it.isNotBlank() }, isHidden)
 }
 
 /** Cache first (F9.2); the raw HTML is kept so the parser can be rerun or the page exported (F11.4). */

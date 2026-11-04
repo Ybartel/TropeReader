@@ -101,7 +101,8 @@ class MergeCardsTest {
 }
 
 class WorkPageStateTest {
-    private fun state(role: String, count: Int?, read: Int, last: Long?) = WorkPageState(WorkPage(role, "w", role, emptyList()), count, read, last)
+    private fun state(role: String, count: Int?, read: Int, last: Long?, hidden: Boolean = false) =
+        WorkPageState(WorkPage(role, "w", role, emptyList(), hidden), count, read, last)
 
     @Test
     fun `status follows read cards`() {
@@ -116,6 +117,22 @@ class WorkPageStateTest {
         val pages = listOf(state("Main", 10, 2, 100L), state("YMMV", 5, 1, 300L), state("Trivia", null, 0, null))
         assertEquals("YMMV", WorkPageState.resumeTarget(pages)!!.page.role)
         assertEquals("Trivia", WorkPageState.resumeTarget(listOf(state("Trivia", null, 0, null)))!!.page.role)
+    }
+
+    @Test
+    fun `resume skips hidden pages`() {
+        val pages = listOf(state("Main", 10, 2, 100L), state("YMMV", 5, 1, 300L, hidden = true))
+        assertEquals("Main", WorkPageState.resumeTarget(pages)!!.page.role)
+        assertNull(WorkPageState.resumeTarget(listOf(state("YMMV", 5, 1, 300L, hidden = true))))
+    }
+
+    @Test
+    fun `moving a page swaps it with its neighbour, and stops at the ends`() {
+        val pages = listOf(state("A", null, 0, null), state("B", null, 0, null), state("C", null, 0, null))
+        assertEquals(listOf("B", "A", "C"), WorkPageState.moved(pages, "B", -1))
+        assertEquals(listOf("A", "C", "B"), WorkPageState.moved(pages, "B", 1))
+        assertEquals(listOf("A", "B", "C"), WorkPageState.moved(pages, "A", -1))
+        assertEquals(listOf("A", "B", "C"), WorkPageState.moved(pages, "C", 1))
     }
 }
 
@@ -146,6 +163,8 @@ class AddWorkTest {
         override suspend fun page(pageId: String): WorkPage? = null
         override suspend fun work(workId: String): Work? = null
         override suspend fun recordCardCount(pageId: String, cardCount: Int) = Unit
+        override suspend fun setPageHidden(pageId: String, hidden: Boolean) = Unit
+        override suspend fun reorderPages(orderedPageIds: List<String>) = Unit
     }
 
     private val ymmv = page("YMMV/BreakingBad", PageType.YMMV, related = listOf(link("Main", "Series/BreakingBad")))

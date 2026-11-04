@@ -5,6 +5,7 @@ import androidx.room.Embedded
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
+import androidx.room.Transaction
 import androidx.room.Upsert
 import kotlinx.coroutines.flow.Flow
 
@@ -52,13 +53,13 @@ interface LibraryDao {
     @Query(
         """
         SELECT w.*,
-          (SELECT COUNT(*) FROM work_page p WHERE p.workId = w.id AND p.deletedAt IS NULL) AS pageCount,
+          (SELECT COUNT(*) FROM work_page p WHERE p.workId = w.id AND p.deletedAt IS NULL AND p.isHidden = 0) AS pageCount,
           (SELECT COUNT(*) FROM page_summary s JOIN work_page p ON p.id = s.pageId
-             WHERE p.workId = w.id AND p.deletedAt IS NULL) AS openedPageCount,
+             WHERE p.workId = w.id AND p.deletedAt IS NULL AND p.isHidden = 0) AS openedPageCount,
           (SELECT COALESCE(SUM(s.cardCount), 0) FROM page_summary s JOIN work_page p ON p.id = s.pageId
-             WHERE p.workId = w.id AND p.deletedAt IS NULL) AS cardCount,
+             WHERE p.workId = w.id AND p.deletedAt IS NULL AND p.isHidden = 0) AS cardCount,
           (SELECT COUNT(*) FROM trope_read_state r JOIN work_page p ON p.id = r.pageId
-             WHERE p.workId = w.id AND p.deletedAt IS NULL AND r.isRead = 1 AND r.deletedAt IS NULL) AS readCount,
+             WHERE p.workId = w.id AND p.deletedAt IS NULL AND p.isHidden = 0 AND r.isRead = 1 AND r.deletedAt IS NULL) AS readCount,
           (SELECT MAX(rp.updatedAt) FROM reading_position rp JOIN work_page p ON p.id = rp.pageId
              WHERE p.workId = w.id AND rp.deletedAt IS NULL) AS lastReadAt
         FROM work w WHERE w.deletedAt IS NULL
@@ -101,6 +102,17 @@ interface LibraryDao {
 
     @Query("UPDATE work_page SET sourceUrls = :sourceUrls, updatedAt = :now WHERE id = :pageId AND sourceUrls != :sourceUrls")
     suspend fun updatePageSources(pageId: String, sourceUrls: String, now: Long)
+
+    @Query("UPDATE work_page SET isHidden = :hidden, updatedAt = :now WHERE id = :pageId")
+    suspend fun setPageHidden(pageId: String, hidden: Boolean, now: Long)
+
+    @Query("UPDATE work_page SET displayOrder = :order, updatedAt = :now WHERE id = :pageId AND displayOrder != :order")
+    suspend fun setPageOrder(pageId: String, order: Int, now: Long)
+
+    @Transaction
+    suspend fun reorderPages(orderedPageIds: List<String>, now: Long) {
+        orderedPageIds.forEachIndexed { order, id -> setPageOrder(id, order, now) }
+    }
 
     @Query("UPDATE work SET deletedAt = :now, updatedAt = :now WHERE id = :workId")
     suspend fun softDeleteWork(workId: String, now: Long)

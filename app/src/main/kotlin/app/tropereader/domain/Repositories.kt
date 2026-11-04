@@ -48,6 +48,12 @@ interface LibraryRepository {
     suspend fun work(workId: String): Work?
 
     suspend fun recordCardCount(pageId: String, cardCount: Int)
+
+    /** F2.4. */
+    suspend fun setPageHidden(pageId: String, hidden: Boolean)
+
+    /** F2.4: [orderedPageIds] lists all of the work's pages in their new order. */
+    suspend fun reorderPages(orderedPageIds: List<String>)
 }
 
 class PageLoadException(message: String, cause: Throwable? = null) : Exception(message, cause)

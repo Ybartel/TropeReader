@@ -25,6 +25,8 @@ data class WorkPage(
     /** `Main` (the tropes, merged across A-to-Z subpages), or a subpage label: `YMMV`, `Trivia`… */
     val role: String,
     val sourceUrls: List<String>,
+    /** Hidden by the user (F2.4): left out of the page list, Resume and the work's progress. */
+    val isHidden: Boolean = false,
 )
 
 enum class PageStatus { NOT_STARTED, IN_PROGRESS, DONE }
@@ -44,9 +46,21 @@ data class WorkPageState(
         }
 
     companion object {
-        /** "Resume" target (F2.3): the page read most recently, else the first one. */
-        fun resumeTarget(pages: List<WorkPageState>): WorkPageState? =
-            pages.filter { it.lastReadAt != null }.maxByOrNull { it.lastReadAt!! } ?: pages.firstOrNull()
+        /** "Resume" target (F2.3): the visible page read most recently, else the first visible one. */
+        fun resumeTarget(pages: List<WorkPageState>): WorkPageState? {
+            val visible = pages.filterNot { it.page.isHidden }
+            return visible.filter { it.lastReadAt != null }.maxByOrNull { it.lastReadAt!! } ?: visible.firstOrNull()
+        }
+
+        /** Page ids in their new order after moving [pageId] one step up ([delta] -1) or down (+1). */
+        fun moved(pages: List<WorkPageState>, pageId: String, delta: Int): List<String> {
+            val ids = pages.map { it.page.id }.toMutableList()
+            val from = ids.indexOf(pageId)
+            val to = from + delta
+            if (from < 0 || to !in ids.indices) return ids
+            ids.add(to, ids.removeAt(from))
+            return ids
+        }
     }
 }
 

@@ -14,6 +14,7 @@ Roadmap status: **steps 1–4 done; step 5 (robustness) started with backups**: 
 - **Work screen** (F2.1–F2.3): the work's pages with their state (not started / in progress x/y / done) and a Resume button (most recently read page).
 - **Merged tropes** (F2.5): a work's tropes page is one logical page made of the main page plus its A-to-Z subpages, loaded one per second with progress shown. Breaking Bad: 6 parts, 1,402 cards.
 - **Subpages** come from the site's subpage bar (Characters, YMMV, Trivia, Funny…), in its order.
+- **Hide / reorder pages** (F2.4): "Edit" on the work screen; uncheck pages to hide them, arrows to move them. Hidden pages leave the page list (a "N hidden pages" link reopens Edit), Resume and the work's progress in the library. Stored in the existing `isHidden` / `displayOrder` columns, so it travels with backups.
 - **Schema v2** adds `page_summary` (card count per page) through an auto-migration, tested by `MigrationTest` (`./gradlew :app:connectedDebugAndroidTest`, needs a device or emulator).
 
 ## Links and spoilers (step 4, part 1)
@@ -33,7 +34,7 @@ Settings → Backup. **Export** writes `tropereader-backup-<date>.json` wherever
 
 Checked on the emulator: export, `pm clear`, import → library and progress back. Tests: format round trip and merge rule (unit), Room round trip between two databases and newest-wins (instrumented).
 
-Not done yet: hiding / reordering pages (F2.4), images inside list items deeper than the card body, Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
+Not done yet: images inside list items deeper than the card body, Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
 
 ## Reader (step 2)
 
