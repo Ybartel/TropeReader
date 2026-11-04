@@ -148,3 +148,37 @@ interface HistoryDao {
     @Query("UPDATE history_entry SET deletedAt = :now, updatedAt = :now WHERE deletedAt IS NULL")
     suspend fun clear(now: Long)
 }
+
+/** Whole user-state tables, soft-deleted rows included, for the JSON backup. */
+@Dao
+interface BackupDao {
+    @Query("SELECT * FROM work")
+    suspend fun works(): List<WorkEntity>
+
+    @Query("SELECT * FROM work_page")
+    suspend fun pages(): List<WorkPageEntity>
+
+    @Query("SELECT * FROM trope_read_state")
+    suspend fun readStates(): List<TropeReadStateEntity>
+
+    @Query("SELECT * FROM reading_position")
+    suspend fun positions(): List<ReadingPositionEntity>
+
+    @Query("SELECT * FROM history_entry")
+    suspend fun history(): List<HistoryEntryEntity>
+
+    @Upsert
+    suspend fun upsertWorks(works: List<WorkEntity>)
+
+    @Upsert
+    suspend fun upsertPages(pages: List<WorkPageEntity>)
+
+    @Upsert
+    suspend fun upsertReadStates(states: List<TropeReadStateEntity>)
+
+    @Upsert
+    suspend fun upsertPositions(positions: List<ReadingPositionEntity>)
+
+    @Upsert
+    suspend fun upsertHistory(entries: List<HistoryEntryEntity>)
+}

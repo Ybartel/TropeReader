@@ -7,6 +7,8 @@ import app.tropereader.data.DataStoreSettingsRepository
 import app.tropereader.data.RoomHistoryRepository
 import app.tropereader.data.RoomLibraryRepository
 import app.tropereader.data.RoomReadingProgressRepository
+import app.tropereader.data.backup.RoomBackupRepository
+import app.tropereader.data.db.BackupDao
 import app.tropereader.data.db.CachedPageDao
 import app.tropereader.data.db.HistoryDao
 import app.tropereader.data.db.LibraryDao
@@ -14,6 +16,7 @@ import app.tropereader.data.db.ProgressDao
 import app.tropereader.data.db.TropeReaderDatabase
 import app.tropereader.data.fetch.PageFetcher
 import app.tropereader.data.fetch.WebViewPageFetcher
+import app.tropereader.domain.BackupRepository
 import app.tropereader.domain.HistoryRepository
 import app.tropereader.domain.LibraryRepository
 import app.tropereader.domain.PageRepository
@@ -48,6 +51,9 @@ object DataModule {
     fun cachedPageDao(db: TropeReaderDatabase): CachedPageDao = db.cachedPageDao()
 
     @Provides
+    fun backupDao(db: TropeReaderDatabase): BackupDao = db.backupDao()
+
+    @Provides
     fun historyDao(db: TropeReaderDatabase): HistoryDao = db.historyDao()
 
     @Provides
@@ -68,6 +74,9 @@ abstract class BindingsModule {
 
     @Binds
     abstract fun fetcher(impl: WebViewPageFetcher): PageFetcher
+
+    @Binds
+    abstract fun backup(impl: RoomBackupRepository): BackupRepository
 
     @Binds
     abstract fun history(impl: RoomHistoryRepository): HistoryRepository

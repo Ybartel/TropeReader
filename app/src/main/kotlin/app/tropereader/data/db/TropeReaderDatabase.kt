@@ -36,6 +36,8 @@ abstract class TropeReaderDatabase : RoomDatabase() {
 
     abstract fun historyDao(): HistoryDao
 
+    abstract fun backupDao(): BackupDao
+
     companion object {
         const val NAME = "tropereader.db"
     }

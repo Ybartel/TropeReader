@@ -2,7 +2,7 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app links, per-spoiler reveal, list view, mark page read, settings and history done.
+Roadmap status: **steps 1–4 done; step 5 (robustness) started with backups**: in-app links, per-spoiler reveal, list view, mark page read, settings and history done.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
 - `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
@@ -26,6 +26,12 @@ Roadmap status: **step 3 done; step 4 (reading comfort) in progress**: in-app li
 - **History** (F8): every card shown in the reader is logged (the same card twice in a row counts once), with its name and work so the list needs no page reload. The history screen (clock icon in the library) groups entries by day; tapping one reopens the reader on that card; "Clear" soft-deletes all entries. Schema v3, with migration tests for 2→3 and 1→3. Pages opened from links are not logged yet.
 - **Quotes, tables, images** (F3.8): the parser splits each card body into blocks (`HtmlBlocks`): text, quotes (side bar, italic, "— Author" right-aligned), tables (columns sized from their longest cell, scroll sideways), images (thumbnail with caption; tap for full screen, pinch to zoom). Images are behind the same Cloudflare check as pages, so Coil loads them with the WebView's cookies and exact User-Agent (`SiteHttp`). No real page tested so far has a table: table rendering is covered by the splitting tests only.
 - **Mark page read / unread** (F4.6): reader menu, or each page's menu on the work screen, always with confirmation. Unread clears every read state of the page; the position is kept.
+
+## Backup (step 5, part 1)
+
+Settings → Backup. **Export** writes `tropereader-backup-<date>.json` wherever the Android file picker allows (Downloads, Drive…): works, pages, read states, positions and history, soft-deleted rows included. Page content is not exported (it is re-downloaded). **Import** merges a backup into the phone, record by record: the most recent `updatedAt` wins, ties keep the local copy, all in one transaction. Thanks to deterministic ids, the same card from two phones is the same record. This is the format the future Google Drive sync will exchange (`format: 1`; newer formats are refused with a message, unknown fields ignored).
+
+Checked on the emulator: export, `pm clear`, import → library and progress back. Tests: format round trip and merge rule (unit), Room round trip between two databases and newest-wins (instrumented).
 
 Not done yet: hiding / reordering pages (F2.4), images inside list items deeper than the card body, Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
 
