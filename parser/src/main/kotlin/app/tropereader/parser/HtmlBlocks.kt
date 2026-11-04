@@ -46,7 +46,8 @@ object HtmlBlocks {
                     flush()
                     out += table(node)
                 }
-                node.hasClass("quoteright") || node.normalName() == "img" -> {
+                // Article pictures only; small inline images stay in the text (and are not drawn).
+                node.hasClass("quoteright") || (node.normalName() == "img" && node.hasClass("embeddedimage")) -> {
                     flush()
                     val img = if (node.normalName() == "img") node else node.selectFirst("img")
                     val caption = node.nextElementSibling()?.takeIf { it.hasClass("acaptionright") }
@@ -61,7 +62,8 @@ object HtmlBlocks {
                     out += quote(node)
                 }
                 // A wrapper holding a table, image or quote: open it so they get their own blocks.
-                node.normalName() == "div" && node.select("table, img, div.indent").isNotEmpty() -> walk(node.childNodes(), out, text, flush)
+                node.normalName() == "div" && node.select("table, img.embeddedimage, div.quoteright, div.indent").isNotEmpty() ->
+                    walk(node.childNodes(), out, text, flush)
                 else -> text.append(node.outerHtml())
             }
         }

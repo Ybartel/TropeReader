@@ -243,7 +243,7 @@ class TvTropesPageParser : PageParser {
             "Trivia", "Recap",
         )
         /** Classes the reader UI styles: spoilers (F6), quotes (F3.8), notes. Everything else is dropped. */
-        val KEPT_CLASSES = setOf("spoiler", "indent", "note", "quoteright", "acaptionright")
+        val KEPT_CLASSES = setOf("spoiler", "indent", "note", "quoteright", "acaptionright", "embeddedimage")
         val SAFELIST: Safelist = Safelist.relaxed().addAttributes(":all", "class").preserveRelativeLinks(false)
 
         fun wikiPath(url: String): String? {
@@ -282,7 +282,8 @@ class TvTropesPageParser : PageParser {
 
         /** Strips notes' toggles, ads and site-only classes before sanitizing. */
         fun prepare(container: Element) {
-            container.select(".notelabel, .tvtropes-ad-unit").remove()
+            // Ads, note toggles, and editors' "should be moved to the YMMV / Trivia tab" icons.
+            container.select(".notelabel, .tvtropes-ad-unit, img[src*=article-hreficon]").remove()
             // Notes are shown inline, in parentheses, in the HTML itself so screen and speech agree.
             container.select(".inlinefolder").forEach { it.clearAttributes().addClass("note").prependText(" (").appendText(")") }
             // Text the site hides (e.g. editors' "invoked" labels); sanitizing drops styles, so it would show.

@@ -23,12 +23,13 @@ class LoadWorkPage @Inject constructor(
         val cards = mergeCards(parsed)
         if (cards.isEmpty()) throw PageLoadException("This page has no cards.")
         library.recordCardCount(pageId, cards.size)
-        val workTitle = work?.title ?: parsed.first().title
-        val title = if (page.role == WorkPlanner.MAIN_ROLE) workTitle else "$workTitle · ${page.role}"
-        return LoadedPage(page, title, cards)
+        return LoadedPage(page, title(page, work?.title ?: parsed.first().title), cards)
     }
 
     companion object {
+        fun title(page: WorkPage, workTitle: String): String =
+            if (page.role == WorkPlanner.MAIN_ROLE) workTitle else "$workTitle · ${page.role}"
+
         /**
          * Concatenates the sources' cards; a key already used by an earlier source gets `@<path>`.
          * The intro of each later part is dropped: on an A-to-Z subpage it is only the navigation bar.

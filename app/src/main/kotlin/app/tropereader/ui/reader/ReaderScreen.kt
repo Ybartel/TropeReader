@@ -37,6 +37,9 @@ import androidx.compose.material3.ListItemDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.pulltorefresh.PullToRefreshBox
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
@@ -44,6 +47,7 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.key
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
@@ -73,6 +77,8 @@ fun ReaderScreen(onBack: () -> Unit, onLink: (String) -> Unit, viewModel: Reader
     // The list closes only once the cursor is on the chosen card: a pager created earlier would
     // start on the old card and report it as settled, undoing the jump.
     var pendingJump by remember { mutableStateOf<Int?>(null) }
+    val snackbar = remember { SnackbarHostState() }
+    LaunchedEffect(viewModel) { viewModel.messages.collect { snackbar.showSnackbar(it) } }
     LaunchedEffect(state, pendingJump) {
         val target = pendingJump ?: return@LaunchedEffect
         if ((state as? ReaderUiState.Reading)?.cursor?.index == target) {
@@ -94,11 +100,12 @@ fun ReaderScreen(onBack: () -> Unit, onLink: (String) -> Unit, viewModel: Reader
                                 Icon(Icons.AutoMirrored.Filled.List, contentDescription = "Show all cards")
                             }
                         }
-                        PageMenu(onMark = { confirmMark = it })
+                        PageMenu(onMark = { confirmMark = it }, onRefresh = { viewModel.refresh() })
                     }
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbar) },
     ) { padding ->
         Box(Modifier.padding(padding).fillMaxSize()) {
             when (val s = state) {
@@ -110,7 +117,12 @@ fun ReaderScreen(onBack: () -> Unit, onLink: (String) -> Unit, viewModel: Reader
                         pendingJump = index
                     })
                 } else {
-                    ReaderContent(s, onCardSettled = viewModel::onCardSettled, onToggleRead = viewModel::toggleRead, onLink = onLink)
+                    PullToRefreshBox(isRefreshing = s.isRefreshing, onRefresh = { viewModel.refresh() }) {
+                        // A refresh replaces the cards: start a fresh pager on the cursor's card.
+                        key(s.cursor.cards) {
+                            ReaderContent(s, onCardSettled = viewModel::onCardSettled, onToggleRead = viewModel::toggleRead, onLink = onLink)
+                        }
+                    }
                 }
             }
         }
@@ -128,11 +140,15 @@ fun ReaderScreen(onBack: () -> Unit, onLink: (String) -> Unit, viewModel: Reader
 }
 
 @Composable
-private fun PageMenu(onMark: (Boolean) -> Unit) {
+private fun PageMenu(onMark: (Boolean) -> Unit, onRefresh: () -> Unit) {
     var open by remember { mutableStateOf(false) }
     Box {
         IconButton(onClick = { open = true }) { Icon(Icons.Filled.MoreVert, contentDescription = "More options") }
         DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            DropdownMenuItem(text = { Text("Refresh page") }, onClick = {
+                open = false
+                onRefresh()
+            })
             DropdownMenuItem(text = { Text("Mark page as read") }, onClick = {
                 open = false
                 onMark(true)

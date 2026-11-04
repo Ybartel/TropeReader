@@ -22,8 +22,14 @@ interface ReadingProgressRepository {
 
 /** Parsed pages, from cache first, else from the site. */
 interface PageRepository {
-    /** @throws PageLoadException */
+    /** From cache when present. @throws PageLoadException */
     suspend fun load(url: String): ParsedPage
+
+    /** Downloads the page again and replaces the cached copy (F9.3). @throws PageLoadException */
+    suspend fun refresh(url: String): ParsedPage
+
+    /** When the cached copy was downloaded, or null when not cached. */
+    suspend fun fetchedAt(url: String): Long?
 }
 
 /** Works, their pages and aggregated progress. */
@@ -48,6 +54,9 @@ interface LibraryRepository {
     suspend fun work(workId: String): Work?
 
     suspend fun recordCardCount(pageId: String, cardCount: Int)
+
+    /** The site redirected [oldUrl] to [newUrl] (F11.3): the page and its work follow, the old URL stays as an alias. */
+    suspend fun recordRename(pageId: String, oldUrl: String, newUrl: String)
 
     /** F2.4. */
     suspend fun setPageHidden(pageId: String, hidden: Boolean)

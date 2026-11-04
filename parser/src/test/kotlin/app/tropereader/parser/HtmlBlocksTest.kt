@@ -50,6 +50,13 @@ class HtmlBlocksTest {
     }
 
     @Test
+    fun `editors' inline icons are dropped and do not split the text`() {
+        val card = page("/pages/VideoGame_Portal2.html").cards.first { it.key == "Main/AccentAdaptation" }
+        assertTrue("hreficon" !in card.bodyHtml, card.bodyHtml)
+        assertIs<HtmlBlock.Text>(HtmlBlocks.split(card.bodyHtml).single())
+    }
+
+    @Test
     fun `real page intros split cleanly`() {
         for (name in listOf("Series_BreakingBad", "VideoGame_Portal2", "Main_AbandonedArea")) {
             val blocks = HtmlBlocks.split(page("/pages/$name.html").cards.first().bodyHtml)

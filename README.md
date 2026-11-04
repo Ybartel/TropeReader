@@ -2,7 +2,7 @@
 
 Personal Android reader for TvTropes, one trope at a time. See the spec: *TropeReader — Spécifications* (Nov 3, 2026).
 
-Roadmap status: **steps 1–4 done; step 5 (robustness) started with backups**: in-app links, per-spoiler reveal, list view, mark page read, settings and history done.
+Roadmap status: **steps 1–4 done; step 5 (robustness): backups and page refresh done**: in-app links, per-spoiler reveal, list view, mark page read, settings and history done.
 
 - `parser/`: pure Kotlin/JVM module that splits a page into cards (step 1).
 - `app/`: Android app (Compose, Room, Hilt): Library → Work → Reader.
@@ -33,6 +33,13 @@ Roadmap status: **steps 1–4 done; step 5 (robustness) started with backups**: 
 Settings → Backup. **Export** writes `tropereader-backup-<date>.json` wherever the Android file picker allows (Downloads, Drive…): works, pages, read states, positions and history, soft-deleted rows included. Page content is not exported (it is re-downloaded). **Import** merges a backup into the phone, record by record: the most recent `updatedAt` wins, ties keep the local copy, all in one transaction. Thanks to deterministic ids, the same card from two phones is the same record. This is the format the future Google Drive sync will exchange (`format: 1`; newer formats are refused with a message, unknown fields ignored).
 
 Checked on the emulator: export, `pm clear`, import → library and progress back. Tests: format round trip and merge rule (unit), Room round trip between two databases and newest-wins (instrumented).
+
+## Refresh and changed pages (step 5, part 2)
+
+- **Refresh** (F9.3): a page shows from cache at once; if any of its sources is older than 7 days (or was never downloaded) it is re-downloaded behind. "Refresh page" in the reader menu, or pull down on a card, does it on demand.
+- **Changed pages** (F5.3, `Reconcile`): cards with the same key keep their state. A card that disappeared is matched with a new card of the same kind under the same trope when their words overlap by at least half (Jaccard): its read state and the saved position move to the new key. Real new cards come in unread; a message gives the counts ("Page updated: 3 new cards, 1 edited, 2 removed").
+- **Renamed pages** (F11.3): when the downloaded page's canonical URL differs, the page's source and the work's URL follow it and the old URL becomes an alias.
+- Not done: refreshing pages in the background without opening them (WorkManager), and a "new" badge on new cards.
 
 Not done yet: images inside list items deeper than the card body, Recap index read as a group of episodes (F3.7). A Recap page currently reads as its plain index.
 

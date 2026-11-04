@@ -130,6 +130,17 @@ class RoomLibraryRepository @Inject constructor(private val dao: LibraryDao) : L
 
     private fun WorkEntity.toDomain() = Work(id, title, mediaType, canonicalUrl)
 
+    override suspend fun recordRename(pageId: String, oldUrl: String, newUrl: String) {
+        val now = System.currentTimeMillis()
+        val page = dao.page(pageId) ?: return
+        dao.updatePageSources(pageId, page.sourceUrls.lines().joinToString("\n") { if (it == oldUrl) newUrl else it }, now)
+        val work = dao.work(page.workId) ?: return
+        if (work.canonicalUrl == oldUrl) {
+            val aliases = (work.aliasUrls.lines() + oldUrl).filter { it.isNotBlank() && it != newUrl }.distinct()
+            dao.upsertWork(work.copy(canonicalUrl = newUrl, aliasUrls = aliases.joinToString("\n"), updatedAt = now))
+        }
+    }
+
     override suspend fun setPageHidden(pageId: String, hidden: Boolean) = dao.setPageHidden(pageId, hidden, System.currentTimeMillis())
 
     override suspend fun reorderPages(orderedPageIds: List<String>) = dao.reorderPages(orderedPageIds, System.currentTimeMillis())
@@ -143,15 +154,26 @@ class CachedPageRepository @Inject constructor(
     private val fetcher: PageFetcher,
     private val parser: PageParser,
 ) : PageRepository {
-    override suspend fun load(url: String): ParsedPage {
-        val html = cache.get(url)?.rawHtml
-            ?: fetcher.fetch(url).also { cache.put(CachedPageEntity(url, it, System.currentTimeMillis())) }
-        return withContext(Dispatchers.Default) {
+    override suspend fun load(url: String): ParsedPage = parse(cache.get(url)?.rawHtml ?: download(url), url)
+
+    override suspend fun refresh(url: String): ParsedPage {
+        val page = parse(download(url), url)
+        // After a redirect the content also lives under the new URL.
+        if (page.url != url) cache.get(url)?.let { cache.put(it.copy(url = page.url)) }
+        return page
+    }
+
+    override suspend fun fetchedAt(url: String): Long? = cache.get(url)?.fetchedAt
+
+    private suspend fun download(url: String): String =
+        fetcher.fetch(url).also { cache.put(CachedPageEntity(url, it, System.currentTimeMillis())) }
+
+    private suspend fun parse(html: String, url: String): ParsedPage =
+        withContext(Dispatchers.Default) {
             try {
                 parser.parse(html, url)
             } catch (e: PageParseException) {
                 throw PageLoadException("This page could not be split into cards.", e)
             }
         }
-    }
 }

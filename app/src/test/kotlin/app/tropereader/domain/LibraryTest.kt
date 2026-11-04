@@ -144,6 +144,10 @@ class AddWorkTest {
             loaded += url
             return pages[url] ?: throw PageLoadException("404")
         }
+
+        override suspend fun refresh(url: String) = load(url)
+
+        override suspend fun fetchedAt(url: String): Long? = null
     }
 
     private class FakeLibrary(private val known: Map<String, String> = emptyMap()) : LibraryRepository {
@@ -163,6 +167,7 @@ class AddWorkTest {
         override suspend fun page(pageId: String): WorkPage? = null
         override suspend fun work(workId: String): Work? = null
         override suspend fun recordCardCount(pageId: String, cardCount: Int) = Unit
+        override suspend fun recordRename(pageId: String, oldUrl: String, newUrl: String) = Unit
         override suspend fun setPageHidden(pageId: String, hidden: Boolean) = Unit
         override suspend fun reorderPages(orderedPageIds: List<String>) = Unit
     }
